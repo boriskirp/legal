@@ -1,4 +1,4 @@
-# legal.html
+# legal
 # Creating the README.md content
 readme_content = """# R&D Розробка: Екосистема «Атом»
 
