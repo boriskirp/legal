@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Публічна Оферта та Тарифи | Інтернет-магазин «Пупченко Борис Петрович»</title>
+    <title>Публічна Оферта / Public Offer | ФОП Пупченко Б.П.</title>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 0 20px; background: #f9f9f9; }
-        .container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.8em; }
+        .container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: relative; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.8em; margin-top: 20px; }
         h2 { color: #34495e; margin-top: 30px; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px; }
         .details { background: #f0f4f8; padding: 20px; border-left: 4px solid #3498db; margin: 20px 0; border-radius: 0 8px 8px 0; }
         .pricing-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
@@ -15,84 +15,233 @@
         .pricing-table th { background-color: #f2f2f2; color: #2c3e50; }
         .price-tag { font-weight: bold; color: #27ae60; }
         footer { margin-top: 50px; font-size: 0.9em; color: #7f8c8d; text-align: center; line-height: 1.8; }
+        
+        /* Стилі для перемикача мов */
+        .lang-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 5px;
+        }
+        .lang-btn {
+            background: #e0e0e0;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85em;
+            color: #555;
+            transition: all 0.2s ease;
+        }
+        .lang-btn.active {
+            background: #3498db;
+            color: white;
+        }
+        .lang-btn:hover {
+            background: #bdc3c7;
+            color: #333;
+        }
+        .lang-btn.active:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        /* Логіка приховування мовних блоків */
+        .lang-en { display: none; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>ПУБЛІЧНА ОФЕРТА ТА УМОВИ НАДАННЯ ПОСЛУГ</h1>
-        <p><strong>Договір про надання послуг з інтелектуального супроводу, семантичної інженерії та R&D розробки</strong></p>
-
-        <div class="details">
-            <strong>Інтернет-магазин:</strong> «Пупченко Борис Петрович» (public_key: i56359469277)<br>
-            <strong>Власник майданчика:</strong> ФОП Пупченко Борис Петрович<br>
-            <strong>РНОКПП (ІПН):</strong> 2247107119<br>
-            <strong>Юридична адреса:</strong> Україна, Дніпропетровська обл., Нікопольський р-н, м. Покров, Вул. Медична 10/12, індекс: 53304<br>
-            <strong>Дата реєстрації ФОП:</strong> 06.05.2026<br>
-            <strong>КВЕД:</strong> 62.01 (Комп'ютерне програмування), 72.19, 74.10<br>
-            <strong>Email для звернень:</strong> mr.karalyp@gmail.com<br>
-            <strong>Телефон:</strong> +38(093)-206-0081
+        
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="switchLang('uk')">UA</button>
+            <button class="lang-btn" onclick="switchLang('en')">EN</button>
         </div>
 
-        <h2>1. ПРЕДМЕТ ДОГОВОРУ ТА КАТАЛОГ ПОСЛУГ</h2>
-        <p>1.1. Виконавець через інтернет-магазин «Пупченко Борис Петрович» надає Замовнику послуги з інтелектуального супроводу, семантичної інженерії, алгоритмізації зв'язків моделей штучного інтелекту, адаптації та технічної підтримки програмних модулів «Атом» (надалі — Послуги).</p>
-        <p>1.2. Базовий код модулів є відкритим (Open Source). Предметом оплати є інтелектуальний супровід, індивідуальна настройка логіки, побудова семантичних зв'язків та валідація інтеграції проекту згідно з обраним пакетом послуг.</p>
-        
-        <h3>Вартість послуг (Тарифи)</h3>
-        <p>Нижче наведено актуальну вартість пакетів супроводу, доступних для замовлення та оплати в національній валюті України — гривні (UAH):</p>
-        
-        <table class="pricing-table">
-            <thead>
-                <tr>
-                    <th>Назва послуги (пакету)</th>
-                    <th>Опис, обсяг послуг та супровід</th>
-                    <th>Вартість (UAH)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Пакет «Ін'єкція»</strong></td>
-                    <td>Виправлення локальної помилки у семантичній логіці або інформаційній структурі: 1 проект, 1 інженерна консультація.</td>
-                    <td class="price-tag">500 грн</td>
-                </tr>
-                <tr>
-                    <td><strong>Пакет «Старт»</strong></td>
-                    <td>Базова валідація інтеграції модуля «Атом», первинне алгоритмічне налаштування логіки під 1 проект, до 2 консультацій розробника.</td>
-                    <td class="price-tag">3 000 грн</td>
-                </tr>
-                <tr>
-                    <td><strong>Пакет «Профі R&D»</strong></td>
-                    <td>Глибока архітектурна адаптація, оптимізація продуктивності семантичного ядра, розширений супровід проекту та до 5 інженерних консультацій.</td>
-                    <td class="price-tag">10 000 грн</td>
-                </tr>
-            </tbody>
-        </table>
+        <div id="content-uk" class="lang-uk">
+            <h1>ПУБЛІЧНА ОФЕРТА ТА УМОВИ НАДАННЯ ПОСЛУГ</h1>
+            <p><strong>Договір про надання послуг з інтелектуального супроводу, семантичної інженерії та R&D розробки</strong></p>
 
-        <h2>2. УМОВИ НАДАННЯ ТА ДОСТАВКИ ПОСЛУГ</h2>
-        <p>2.1. Надання послуг (доставка цифрового продукту) здійснюється виключно в електронній (цифровій) формі через мережу Інтернет.</p>
-        <p>2.2. Після повної оплати вартості обраного пакету послуг, Виконавець зобов’язується надати Замовнику первинний доступ до закритих репозиторіїв або розпочати аналіз проекту <strong>протягом 24 годин</strong> з моменту зарахування коштів.</p>
-        <p>2.3. Термін безпосереднього виконання робіт та проведення семантичної інженерії залежить від складності архітектури проекту, але не може перевищувати 14 (чотирнадцяти) робочих днів з моменту отримання Виконавцем усіх необхідних технічних допусків від Замовника.</p>
+            <div class="details">
+                <strong>Інтернет-магазин:</strong> «Пупченко Борис Петрович» (public_key: i56359469277)<br>
+                <strong>Власник майданчика:</strong> ФОП Пупченко Борис Петрович<br>
+                <strong>РНОКПП (ІПН):</strong> 2247107119<br>
+                <strong>Юридична адреса:</strong> Україна, Дніпропетровська обл., Нікопольський р-н, м. Покров, Вул. Медична 10/12, індекс: 53304<br>
+                <strong>Дата реєстрації ФОП:</strong> 06.05.2026<br>
+                <strong>КВЕД:</strong> 62.01 (Комп'ютерне програмування), 72.19, 74.10<br>
+                <strong>Email для звернень:</strong> mr.karalyp@gmail.com<br>
+                <strong>Телефон:</strong> +38(093)-206-0081
+            </div>
 
-        <h2>3. ПОРЯДОК АКЦЕПТУ ТА ОПЛАТИ</h2>
-        <p>3.1. Оплата Замовником сформованого інвойсу або здійснення електронного платежу на сайті через інтегровану платіжну систему є повним і безумовним прийняттям (акцептом) умов цієї Публічної Оферти.</p>
-        <p>3.2. Всі розрахунки проводяться у безготівковій формі у гривнях (UAH) за допомогою банківських карток або інших платіжних засобів, доступних через платіжний шлюз.</p>
+            <h2>1. ПРЕДМЕТ ДОГОВОРУ ТА КАТАЛОГ ПОСЛУГ</h2>
+            <p>1.1. Виконавець через інтернет-магазин «Пупченко Борис Петрович» надає Замовнику послуги з інтелектуального супроводу, семантичної інженерії, алгоритмізації зв'язків моделей штучного інтелекту, адаптації та технічної підтримки програмних модулів «Атом» (надалі — Послуги).</p>
+            <p>1.2. Базовий код модулів є відкритим (Open Source). Предметом оплати є інтелектуальний супровід, індивідуальна настройка логіки, побудова семантичних зв'язків та валідація інтеграції проекту згідно з обраним пакетом послуг.</p>
+            
+            <h3>Вартість послуг (Тарифи)</h3>
+            <p>Нижче наведено актуальну вартість пакетів супроводу, доступних для замовлення та оплати в національній валюті України — гривні (UAH):</p>
+            
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Назва послуги (пакету)</th>
+                        <th>Опис, обсяг послуг та супровід</th>
+                        <th>Вартість (UAH)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Пакет «Ін'єкція»</strong></td>
+                        <td>Виправлення локальної помилки у семантичній логіці або інформаційній структурі: 1 проект, 1 інженерна консультація.</td>
+                        <td class="price-tag">500 грн</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Пакет «Старт»</strong></td>
+                        <td>Базова валідація інтеграції модуля «Атом», первинне алгоритмічне налаштування логіки під 1 проект, до 2 консультацій розробника.</td>
+                        <td class="price-tag">3 000 грн</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Пакет «Профі R&D»</strong></td>
+                        <td>Глубока архітектурна адаптація, оптимізація продуктивності семантичного ядра, розширений супровід проекту та до 5 інженерних консультацій.</td>
+                        <td class="price-tag">10 000 грн</td>
+                    </tr>
+                </tbody>
+            </table>
 
-        <h2>4. ПРАВИЛА ТА УМОВИ ПОВЕРНЕННЯ КОШТІВ</h2>
-        <p>4.1. Оскільки предметом договору є надання послуг (інтелектуального/цифрового супроводу), Замовник має право відмовитися від договору та повернути кошти <strong>до моменту фактичного початку виконання робіт</strong> (до надання доступу до репозиторіїв або початку проведення консультацій).</p>
-        <p>4.2. Для оформлення повернення Замовник має надіслати офіційний запит на email: mr.karalyp@gmail.com із зазначенням реквізитів платежу.</p>
-        <p>4.3. Повернення коштів здійснюється Виконавцем на ту саму банківську картку або рахунок, з якого було здійснено оплату, протягом 7 (семи) банківських днів з моменту погодження заяви.</p>
-        <p>4.4. Після фактичного надання послуг (виправлення помилок, налаштування алгоритмів) та підписання Акту (або відсутності письмових претензій протягом 3 днів з моменту здачі проекту) кошти за надані послуги поверненню не підлягають згідно з чинним законодавством України.</p>
+            <h2>2. УМОВИ НАДАННЯ ТА ДОСТАВКИ ПОСЛУГ</h2>
+            <p>2.1. Надання послуг (доставка цифрового продукту) здійснюється виключно в електронній (цифровій) формі через мережу Інтернет.</p>
+            <p>2.2. Після повної оплати вартості обраного пакету послуг, Виконавець зобов’язується надати Замовнику первинний доступ до закритих репозиторіїв або розпочати аналіз проекту <strong>протягом 24 годин</strong> з моменту зарахування коштів.</p>
+            <p>2.3. Термін безпосереднього виконання робіт та проведення семантичної інженерії залежить від складності архітектури проекту, але не може перевищувати 14 (чотирнадцяти) робочих днів з моменту отримання Виконавцем усіх необхідних технічних допусків від Замовника.</p>
 
-        <h2>5. РЕКВІЗИТИ ВИКОНАВЦЯ (ВЛАСНИКА)</h2>
-        <p>ФОП Пупченко Борис Петрович<br>
-        РНОКПП (ІПН): 2247107119<br>
-        Юридична адреса: Україна, Дніпропетровська обл., Нікопольський р-н, м. Покров, Вул. Медична 10/12, індекс: 53304<br>
-        Поточний рахунок (IBAN): UA033052990000026006050668381 в АТ КБ «ПриватБанк»<br>
-        Контактний телефон: +38(093)-206-0081<br>
-        Офіційний email: mr.karalyp@gmail.com</p>
+            <h2>3. ПОРЯДОК АКЦЕПТУ ТА ОПЛАТИ</h2>
+            <p>3.1. Оплата Замовником сформованого інвойсу або здійснення електронного платежу на сайті через інтегрована платіжну систему є повним і безумовним прийняттям (акцептом) умов цієї Публічної Оферти.</p>
+            <p>3.2. Всі розрахунки проводяться у безготівковій формі у гривнях (UAH) за допомогою банківських карток або інших платіжних засобів, доступних через платіжний шлюз.</p>
+
+            <h2>4. ПРАВИЛА ТА УМОВИ ПОВЕРНЕННЯ КОШТІВ</h2>
+            <p>4.1. Оскільки предметом договору є надання послуг (інтелектуального/цифрового супроводу), Замовник має право відмовитися від договору та повернути кошти <strong>до моменту фактичного початку виконання робіт</strong> (до надання доступу до репозиторіїв або початку проведення консультацій).</p>
+            <p>4.2. Для оформлення повернення Замовник має надіслати офіційний запит на email: mr.karalyp@gmail.com із зазначенням реквізитів платежу.</p>
+            <p>4.3. Повернення коштів здійснюється Виконавцем на ту саму банківську картку або рахунок, з якого було здійснено оплату, протягом 7 (семи) банківських днів з моменту погодження заяви.</p>
+            <p>4.4. Після фактичного надання послуг (виправлення помилок, налаштування алгоритмів) та підписання Акту (або відсутності письмових претензій протягом 3 днів з моменту здачі проекту) кошти за надані послуги поверненню не підлягають згідно з чинним законодавством України.</p>
+
+            <h2>5. РЕКВІЗИТИ ВИКОНАВЦЯ (ВЛАСНИКА)</h2>
+            <p>ФОП Пупченко Борис Петрович<br>
+            РНОКПП (ІПН): 2247107119<br>
+            Юридична адреса: Україна, Дніпропетровська обл., Нікопольський р-н, м. Покров, Вул. Медична 10/12, індекс: 53304<br>
+            Поточний рахунок (IBAN): UA033052990000026006050668381 в АТ КБ «ПриватБанк»<br>
+            Контактний телефон: +38(093)-206-0081<br>
+            Офіційний email: mr.karalyp@gmail.com</p>
+        </div>
+
+        <div id="content-en" class="lang-en">
+            <h1>PUBLIC OFFER AND TERMS OF SERVICE</h1>
+            <p><strong>Agreement on the Provision of Intellectual Support, Semantic Engineering, and R&D Development Services</strong></p>
+
+            <div class="details">
+                <strong>Platform/Studio:</strong> «Boris Pupchenko» (public_key: i56359469277)<br>
+                <strong>Service Provider:</strong> Sole Proprietor (FOP) Boris Petrovych Pupchenko<br>
+                <strong>Tax ID (RNOKPP/TIN):</strong> 2247107119<br>
+                <strong>Registered Address:</strong> 10/12 Medychna St, Pokrov, Nikopol Dist, Dnipropetrovsk Reg, 53304, Ukraine<br>
+                <strong>Date of Registration:</strong> May 06, 2026<br>
+                <strong>NACE (KVED) Codes:</strong> 62.01 (Computer programming), 72.19, 74.10<br>
+                <strong>Support Email:</strong> mr.karalyp@gmail.com<br>
+                <strong>Phone:</strong> +38(093)-206-0081
+            </div>
+
+            <h2>1. SUBJECT OF THE AGREEMENT & SERVICE CATALOG</h2>
+            <p>1.1. The Provider, through the online platform «Boris Pupchenko», provides the Customer with services in intellectual support, semantic engineering, algorithmization of connections in artificial intelligence models, adaptation, and technical support of "Atom" software modules (hereinafter referred to as the Services).</p>
+            <p>1.2. The core code of the modules is Open Source. The subject of payment is intellectual support, individual logic configuration, building semantic connections, and validation of the project's integration according to the selected service package.</p>
+            
+            <h3>Service Fees (Tariffs)</h3>
+            <p>Below are the current rates for support packages available for order and payment in foreign currencies (USD/EUR) and Ukrainian Hryvnia (UAH) equivalent:</p>
+            
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Service Package</th>
+                        <th>Scope of Work & Support Included</th>
+                        <th>Price (USD / Equiv.)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>«Hotfix» (Injection)</strong></td>
+                        <td>Fixing a local bug in semantic logic or information structure: 1 project, 1 engineering consultation.</td>
+                        <td class="price-tag">$15 USD</td>
+                    </tr>
+                    <tr>
+                        <td><strong>«Launch» (Start)</strong></td>
+                        <td>Basic validation of the "Atom" module integration, initial algorithmic logic configuration for 1 project, up to 2 developer consultations.</td>
+                        <td class="price-tag">$75 USD</td>
+                    </tr>
+                    <tr>
+                        <td><strong>«Enterprise R&D» (Pro R&D)</strong></td>
+                        <td>Deep architectural adaptation, performance optimization of the semantic core, extended project support, and up to 5 engineering consultations.</td>
+                        <td class="price-tag">$250 USD</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>2. TERMS OF SERVICE DELIVERY & FULFILLMENT</h2>
+            <p>2.1. The provision of services (delivery of the digital product) is carried out exclusively in electronic (digital) form via the Internet.</p>
+            <p>2.2. After full payment of the selected package, the Provider undertakes to provide the Customer with initial access to private repositories or begin project analysis <strong>within 24 hours</strong> from the moment the funds are credited.</p>
+            <p>2.3. The timeframe for the direct execution of works and semantic engineering depends on the complexity of the project's architecture, but cannot exceed 14 (fourteen) business days from the moment the Provider receives all necessary technical credentials and access from the Customer.</p>
+
+            <h2>3. ACCEPTANCE AND PAYMENT PROCEDURE</h2>
+            <p>3.1. Payment by the Customer of the generated invoice or execution of an electronic payment on the website through an integrated payment gateway constitutes full and unconditional acceptance (acceptance) of the terms of this Public Offer.</p>
+            <p>3.2. All settlements are carried out in non-cash form in foreign currencies (USD/EUR) accepted by the Provider's bank, or in Ukrainian Hryvnia (UAH) according to the invoice terms and current banking regulations.</p>
+
+            <h2>4. REFUND AND CANCELLATION POLICY</h2>
+            <p>4.1. Since the subject of the agreement is the provision of intellectual/digital support services, the Customer has the right to terminate the contract and request a refund <strong>strictly before the actual commencement of the work</strong> (prior to being granted access to repositories or before the first consultation begins).</p>
+            <p>4.2. To request a refund, the Customer must send an official inquiry to the email: mr.karalyp@gmail.com, stating the payment details.</p>
+            <p>4.3. Refunds are processed by the Provider to the same bank card or account from which the payment was made within 7 (seven) banking days from the moment the request is approved.</p>
+            <p>4.4. After the services have been actually rendered (bugs fixed, algorithms configured) and the Acceptance Act is signed (or in the absence of written claims within 3 days from project delivery), the funds for the rendered services are non-refundable in accordance with applicable laws.</p>
+
+            <h2>5. PROVIDER'S LEGAL DETAILS</h2>
+            <p>Sole Proprietor (FOP) Boris Petrovych Pupchenko<br>
+            Tax ID (RNOKPP): 2247107119<br>
+            Registered Address: 10/12 Medychna St, Pokrov, Nikopol Dist, Dnipropetrovsk Reg, 53304, Ukraine<br>
+            Current Account (IBAN): UA033052990000026006050668381 at JSC CB "PrivatBank"<br>
+            Contact Phone: +38(093)-206-0081<br>
+            Official Email: mr.karalyp@gmail.com</p>
+        </div>
+
     </div>
+
     <footer>
-        &copy; 2026 Інтернет-магазин «Пупченко Борис Петрович» / ФОП Пупченко Б.П. Всі права захищені.<br>
-        АТ КБ ПриватБанк Ліцензія НБУ № 22 від 05.10.2011 р. (для платіжних шлюзів)
+        <span class="lang-uk">&copy; 2026 Інтернет-магазин «Пупченко Борис Петрович» / ФОП Пупченко Б.П. Всі права захищені.<br>АТ КБ ПриватБанк Ліцензія НБУ № 22 від 05.10.2011 р.</span>
+        <span class="lang-en">&copy; 2026 Boris Pupchenko R&D Studio / FOP Boris P.P. All rights reserved.<br>JSC CB PrivatBank NBU License No. 22 dated 05.10.2011</span>
     </footer>
+
+    <script>
+        function switchLang(lang) {
+            const uaBlock = document.getElementById('content-uk');
+            const enBlock = document.getElementById('content-en');
+            const uaFooters = document.querySelectorAll('footer .lang-uk');
+            const enFooters = document.querySelectorAll('footer .lang-en');
+            const buttons = document.querySelectorAll('.lang-btn');
+
+            // Скидаємо активний клас з усіх кнопок
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            if (lang === 'uk') {
+                // Показуємо українську версію
+                uaBlock.style.display = 'block';
+                enBlock.style.display = 'none';
+                uaFooters.forEach(f => f.style.display = 'inline');
+                enFooters.forEach(f => f.style.display = 'none');
+                // Робимо активною кнопку UA
+                buttons[0].classList.add('active');
+            } else {
+                // Показуємо англійську версію
+                uaBlock.style.display = 'none';
+                enBlock.style.display = 'block';
+                uaFooters.forEach(f => f.style.display = 'none');
+                enFooters.forEach(f => f.style.display = 'inline');
+                // Робимо активною кнопку EN
+                buttons[1].classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
