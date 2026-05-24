@@ -13,7 +13,7 @@
         .pricing-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
         .pricing-table th, .pricing-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
         .pricing-table th { background-color: #f2f2f2; color: #2c3e50; }
-        .price-tag { font-weight: bold; color: #27ae60; }
+        .price-tag { font-weight: bold; color: #27ae60; white-space: nowrap; }
         footer { margin-top: 50px; font-size: 0.9em; color: #7f8c8d; text-align: center; line-height: 1.8; }
         
         /* Стилі для перемикача мов */
@@ -48,8 +48,8 @@
             color: white;
         }
 
-        /* Логіка приховування мовних блоків */
-        .lang-en { display: none; }
+        /* Логіка приховування мовних блоків за замовчуванням */
+        .lang-en, footer .lang-en { display: none; }
     </style>
 </head>
 <body>
@@ -60,12 +60,13 @@
             <button class="lang-btn" onclick="switchLang('en')">EN</button>
         </div>
 
+        <!-- УКРАЇНСЬКА ВЕРСІЯ -->
         <div id="content-uk" class="lang-uk">
             <h1>ПУБЛІЧНА ОФЕРТА ТА УМОВИ НАДАННЯ ПОСЛУГ</h1>
             <p><strong>Договір про надання послуг з інтелектуального супроводу, семантичної інженерії та R&D розробки</strong></p>
 
             <div class="details">
-                <strong>Інтернет-магазин:</strong> «Пупченко Борис Петрович» (public_key: i56359469277)<br>
+                <strong>Інтернет-майданчик:</strong> «Пупченко Борис Петрович» (public_key: i56359469277)<br>
                 <strong>Власник майданчика:</strong> ФОП Пупченко Борис Петрович<br>
                 <strong>РНОКПП (ІПН):</strong> 2247107119<br>
                 <strong>Юридична адреса:</strong> Україна, Дніпропетровська обл., Нікопольський р-н, м. Покров, Вул. Медична 10/12, індекс: 53304<br>
@@ -76,7 +77,7 @@
             </div>
 
             <h2>1. ПРЕДМЕТ ДОГОВОРУ ТА КАТАЛОГ ПОСЛУГ</h2>
-            <p>1.1. Виконавець через інтернет-магазин «Пупченко Борис Петрович» надає Замовнику послуги з інтелектуального супроводу, семантичної інженерії, алгоритмізації зв'язків моделей штучного інтелекту, адаптації та технічної підтримки програмних модулів «Атом» (надалі — Послуги).</p>
+            <p>1.1. Виконавець через інтернет-майданчик надає Замовнику послуги з інтелектуального супроводу, семантичної інженерії, алгоритмізації зв'язків моделей штучного інтелекту, адаптації та технічної підтримки програмних модулів (надалі — Послуги).</p>
             <p>1.2. Базовий код модулів є відкритим (Open Source). Предметом оплати є інтелектуальний супровід, індивідуальна настройка логіки, побудова семантичних зв'язків та валідація інтеграції проекту згідно з обраним пакетом послуг.</p>
             
             <h3>Вартість послуг (Тарифи)</h3>
@@ -98,30 +99,35 @@
                     </tr>
                     <tr>
                         <td><strong>Пакет «Старт»</strong></td>
-                        <td>Базова валідація інтеграції модуля «Атом», первинне алгоритмічне налаштування логіки під 1 проект, до 2 консультацій розробника.</td>
+                        <td>Базова валідація інтеграції модулів, первинне алгоритмічне налаштування логіки під 1 проект, до 2 консультацій розробника.</td>
                         <td class="price-tag">3 000 грн</td>
                     </tr>
                     <tr>
                         <td><strong>Пакет «Профі R&D»</strong></td>
-                        <td>Глубока архітектурна адаптація, оптимізація продуктивності семантичного ядра, розширений супровід проекту та до 5 інженерних консультацій.</td>
+                        <td>Глибока архітектурна адаптація, оптимізація продуктивності семантичного ядра, розширений супровід проекту та до 5 інженерних консультацій.</td>
                         <td class="price-tag">20 000 грн</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Пакет «Сенсовий Консалтинг»</strong></td>
+                        <td>Індивідуальне проектування складних інформаційних систем, виправлення сигналу даних, інтеграція ШІ-моделей під архітектуру замовника, супровід Enterprise-рівня.</td>
+                        <td class="price-tag">Договірна</td>
                     </tr>
                 </tbody>
             </table>
 
             <h2>2. УМОВИ НАДАННЯ ТА ДОСТАВКИ ПОСЛУГ</h2>
             <p>2.1. Надання послуг (доставка цифрового продукту) здійснюється виключно в електронній (цифровій) формі через мережу Інтернет.</p>
-            <p>2.2. Після повної оплати вартості обраного пакету послуг, Виконавець зобов’язується надати Замовнику первинний доступ до закритих репозиторіїв або розпочати аналіз проекту <strong>протягом 24 годин</strong> з моменту зарахування коштів.</p>
-            <p>2.3. Термін безпосереднього виконання робіт та проведення семантичної інженерії залежить від складності архітектури проекту, але не може перевищувати 14 (чотирнадцяти) робочих днів з моменту отримання Виконавцем усіх необхідних технічних допусків від Замовника.</p>
+            <p>2.2. Після повної оплати вартості обраного пакету послуг (або передоплати згідно з умовами договірного пакету), Виконавець зобов’язується надати Замовнику первинний доступ до закритих репозиторіїв або розпочати аналіз проекту <strong>протягом 24 годин</strong> з моменту зарахування коштів.</p>
+            <p>2.3. Термін безпосереднього виконання робіт та проведення семантичної інженерії залежить від складності архітектури проекту, але не може перевищувати 14 (чотирнадцяти) робочих днів з моменту отримання Виконавцем усіх необхідних технічних допусків від Замовника (якщо інші терміни не обумовлені окремим договором).</p>
 
             <h2>3. ПОРЯДОК АКЦЕПТУ ТА ОПЛАТИ</h2>
-            <p>3.1. Оплата Замовником сформованого інвойсу або здійснення електронного платежу на сайті через інтегрована платіжну систему є повним і безумовним прийняттям (акцептом) умов цієї Публічної Оферти.</p>
-            <p>3.2. Всі розрахунки проводяться у безготівковій формі у гривнях (UAH) за допомогою банківських карток або інших платіжних засобів, доступних через платіжний шлюз.</p>
+            <p>3.1. Оплата Замовником сформованого інвойсу або здійснення електронного платежу на сайті через інтегровану платіжну систему є повним і безумовним прийняттям (акцептом) умов цієї Публічної Оферти.</p>
+            <p>3.2. Всі розрахунки за фіксованими пакетами проводяться у безготівковій формі у гривнях (UAH). Для пакетів із договірною оплатою розрахунки здійснюються відповідно до виставленого рахунку-фактури (інвойсу).</p>
 
             <h2>4. ПРАВИЛА ТА УМОВИ ПОВЕРНЕННЯ КОШТІВ</h2>
             <p>4.1. Оскільки предметом договору є надання послуг (інтелектуального/цифрового супроводу), Замовник має право відмовитися від договору та повернути кошти <strong>до моменту фактичного початку виконання робіт</strong> (до надання доступу до репозиторіїв або початку проведення консультацій).</p>
             <p>4.2. Для оформлення повернення Замовник має надіслати офіційний запит на email: mr.karalyp@gmail.com із зазначенням реквізитів платежу.</p>
-            <p>4.3. Повернення коштів здійснюється Виконавцем на ту саму банківську картку або рахунок, з якого було здійснено оплату, протягом 7 (семи) банківських днів з моменту погодження заяви.</p>
+            <p>4.3. Поверання коштів здійснюється Виконавцем на ту саму банківську картку або рахунок, з якого було здійснено оплату, протягом 7 (семи) банківських днів з моменту погодження заяви.</p>
             <p>4.4. Після фактичного надання послуг (виправлення помилок, налаштування алгоритмів) та підписання Акту (або відсутності письмових претензій протягом 3 днів з моменту здачі проекту) кошти за надані послуги поверненню не підлягають згідно з чинним законодавством України.</p>
 
             <h2>5. РЕКВІЗИТИ ВИКОНАВЦЯ (ВЛАСНИКА)</h2>
@@ -133,6 +139,7 @@
             Офіційний email: mr.karalyp@gmail.com</p>
         </div>
 
+        <!-- ENGLISH VERSION -->
         <div id="content-en" class="lang-en">
             <h1>PUBLIC OFFER AND TERMS OF SERVICE</h1>
             <p><strong>Agreement on the Provision of Intellectual Support, Semantic Engineering, and R&D Development Services</strong></p>
@@ -149,11 +156,11 @@
             </div>
 
             <h2>1. SUBJECT OF THE AGREEMENT & SERVICE CATALOG</h2>
-            <p>1.1. The Provider, through the online platform «Boris Pupchenko», provides the Customer with services in intellectual support, semantic engineering, algorithmization of connections in artificial intelligence models, adaptation, and technical support of "Atom" software modules (hereinafter referred to as the Services).</p>
+            <p>1.1. The Provider, through the online platform, provides the Customer with services in intellectual support, semantic engineering, algorithmization of connections in artificial intelligence models, adaptation, and technical support of software modules (hereinafter referred to as the Services).</p>
             <p>1.2. The core code of the modules is Open Source. The subject of payment is intellectual support, individual logic configuration, building semantic connections, and validation of the project's integration according to the selected service package.</p>
             
             <h3>Service Fees (Tariffs)</h3>
-            <p>Below are the current rates for support packages available for order and payment in foreign currencies (USD/EUR) and Ukrainian Hryvnia (UAH) equivalent:</p>
+            <p>Below are the current rates for support packages available for order and payment in foreign currencies (USD/EUR) or Ukrainian Hryvnia (UAH) equivalent:</p>
             
             <table class="pricing-table">
                 <thead>
@@ -171,7 +178,7 @@
                     </tr>
                     <tr>
                         <td><strong>«Launch» (Start)</strong></td>
-                        <td>Basic validation of the "Atom" module integration, initial algorithmic logic configuration for 1 project, up to 2 developer consultations.</td>
+                        <td>Basic validation of module integration, initial algorithmic logic configuration for 1 project, up to 2 developer consultations.</td>
                         <td class="price-tag">$75 USD</td>
                     </tr>
                     <tr>
@@ -179,17 +186,22 @@
                         <td>Deep architectural adaptation, performance optimization of the semantic core, extended project support, and up to 5 engineering consultations.</td>
                         <td class="price-tag">$500 USD</td>
                     </tr>
+                    <tr>
+                        <td><strong>«Semantic Consulting»</strong></td>
+                        <td>Custom design of complex information systems, data signal correction, AI model integration tailored to customer architecture, Enterprise-level support.</td>
+                        <td class="price-tag">Negotiable</td>
+                    </tr>
                 </tbody>
             </table>
 
             <h2>2. TERMS OF SERVICE DELIVERY & FULFILLMENT</h2>
             <p>2.1. The provision of services (delivery of the digital product) is carried out exclusively in electronic (digital) form via the Internet.</p>
-            <p>2.2. After full payment of the selected package, the Provider undertakes to provide the Customer with initial access to private repositories or begin project analysis <strong>within 24 hours</strong> from the moment the funds are credited.</p>
-            <p>2.3. The timeframe for the direct execution of works and semantic engineering depends on the complexity of the project's architecture, but cannot exceed 14 (fourteen) business days from the moment the Provider receives all necessary technical credentials and access from the Customer.</p>
+            <p>2.2. After full payment of the selected package (or advanced payment under the Negotiable contract), the Provider undertakes to provide the Customer with initial access to private repositories or begin project analysis <strong>within 24 hours</strong> from the moment the funds are credited.</p>
+            <p>2.3. The timeframe for the direct execution of works and semantic engineering depends on the complexity of the project's architecture, but cannot exceed 14 (fourteen) business days from the moment the Provider receives all necessary technical credentials and access from the Customer (unless specified otherwise in a custom agreement).</p>
 
             <h2>3. ACCEPTANCE AND PAYMENT PROCEDURE</h2>
             <p>3.1. Payment by the Customer of the generated invoice or execution of an electronic payment on the website through an integrated payment gateway constitutes full and unconditional acceptance (acceptance) of the terms of this Public Offer.</p>
-            <p>3.2. All settlements are carried out in non-cash form in foreign currencies (USD/EUR) accepted by the Provider's bank, or in Ukrainian Hryvnia (UAH) according to the invoice terms and current banking regulations.</p>
+            <p>3.2. All settlements for standard packages are carried out in non-cash form. For custom packages, settlements are performed in foreign currencies (USD/EUR) accepted by the Provider's bank or in Ukrainian Hryvnia (UAH) according to invoice terms.</p>
 
             <h2>4. REFUND AND CANCELLATION POLICY</h2>
             <p>4.1. Since the subject of the agreement is the provision of intellectual/digital support services, the Customer has the right to terminate the contract and request a refund <strong>strictly before the actual commencement of the work</strong> (prior to being granted access to repositories or before the first consultation begins).</p>
@@ -209,7 +221,7 @@
     </div>
 
     <footer>
-        <span class="lang-uk">&copy; 2026 Інтернет-магазин «Пупченко Борис Петрович» / ФОП Пупченко Б.П. Всі права захищені.<br>АТ КБ ПриватБанк Ліцензія НБУ № 22 від 05.10.2011 р.</span>
+        <span class="lang-uk">&copy; 2026 Інтернет-майданчик «Пупченко Борис Петрович» / ФОП Пупченко Б.П. Всі права захищені.<br>АТ КБ ПриватБанк Ліцензія НБУ № 22 від 05.10.2011 р.</span>
         <span class="lang-en">&copy; 2026 Boris Pupchenko R&D Studio / FOP Boris P.P. All rights reserved.<br>JSC CB PrivatBank NBU License No. 22 dated 05.10.2011</span>
     </footer>
 
@@ -221,24 +233,19 @@
             const enFooters = document.querySelectorAll('footer .lang-en');
             const buttons = document.querySelectorAll('.lang-btn');
 
-            // Скидаємо активний клас з усіх кнопок
             buttons.forEach(btn => btn.classList.remove('active'));
 
             if (lang === 'uk') {
-                // Показуємо українську версію
                 uaBlock.style.display = 'block';
                 enBlock.style.display = 'none';
                 uaFooters.forEach(f => f.style.display = 'inline');
                 enFooters.forEach(f => f.style.display = 'none');
-                // Робимо активною кнопку UA
                 buttons[0].classList.add('active');
             } else {
-                // Показуємо англійську версію
                 uaBlock.style.display = 'none';
                 enBlock.style.display = 'block';
                 uaFooters.forEach(f => f.style.display = 'none');
                 enFooters.forEach(f => f.style.display = 'inline');
-                // Робимо активною кнопку EN
                 buttons[1].classList.add('active');
             }
         }
