@@ -113,17 +113,12 @@
             <h2>2. УМОВИ НАДАННЯ ТА ДОСТАВКИ ПОСЛУГ</h2>
             <p>2.1. Надання послуг (доставка цифрового продукту) здійснюється виключно в електронній (цифровій) формі через мережу Інтернет.</p>
             <p>2.2. Після повної оплати вартості обраного пакету послуг (або передоплати згідно з умовами договірного пакету), Виконавець зобов’язується надати Замовнику первинний доступ до закритих репозиторіїв або розпочати аналіз проекту <strong>протягом 24 годин</strong> з моменту зарахування коштів.</p>
-            <p>2.3. Термін безпосереднього виконання робіт та проведення семантичної інженерії залежить від складності архітектури проекту, але не може перевищувати 14 (чотирнадцяти) робочих днів з моменту отримання Виконавцем усіх необхідних технічних допусків від Замовника.</p>
 
             <h2>3. ПОРЯДОК АКЦЕПТУ ТА ОПЛАТИ</h2>
             <p>3.1. Генерація Замовником рахунку-фактури на сайті після проставлення відмітки про ознайомлення, та подальша оплата цього рахунку через клієнт-банк за вказаними реквізитами (IBAN) є повним і безумовним прийняттям (акцептом) умов цієї Публічної Оферти.</p>
-            <p>3.2. Всі розрахунки за фіксованими пакетами проводяться у безготівковій формі у гривнях (UAH) шляхом банківського переказу на розрахунковий рахунок Виконавця.</p>
 
             <h2>4. ПРАВИЛА ТА УМОВИ ПОВЕРНЕННЯ КОШТІВ</h2>
             <p>4.1. Оскільки предметом договору є надання послуг, Замовник має право відмовитися від договору та повернути кошти <strong>до моменту фактичного початку виконання робіт</strong>.</p>
-            <p>4.2. Для оформлення повернення Замовник має надіслати офіційний запит на email: mr.karalyp@gmail.com із зазначенням реквізитів платежу.</p>
-            <p>4.3. Повернення коштів здійснюється Виконавцем на той самий рахунок, з якого було здійснено оплату, протягом 7 (семи) банківських днів.</p>
-            <p>4.4. Після фактичного надання послуг та відсутності письмових претензій протягом 3 днів з моменту здачі проекту кошти за надані послуги поверненню не підлягають.</p>
 
             <h2>5. РЕКВІЗИТИ ВИКОНАВЦЯ (ВЛАСНИКА)</h2>
             <p>ФОП Пупченко Борис Петрович<br>
@@ -152,10 +147,9 @@
 
             <h2>1. SUBJECT OF THE AGREEMENT & SERVICE CATALOG</h2>
             <p>1.1. The Provider, through the online platform, provides the Customer with services in intellectual support, semantic engineering, algorithmization of connections in artificial intelligence models, adaptation, and technical support of software modules (hereinafter referred to as the Services).</p>
-            <p>1.2. The core code of the modules is Open Source. The subject of payment is intellectual support, individual logic configuration, building semantic connections, and validation of the project's integration according to the selected service package.</p>
             
             <h3>Service Fees (Tariffs)</h3>
-            <p>Below are the current rates for support packages available for order and payment via bank transfer to the official FOP account in UAH equivalent:</p>
+            <p>Below are the current rates for support packages available for international orders via invoice settlement (processed in UAH equivalent):</p>
             
             <table class="pricing-table">
                 <thead>
@@ -189,15 +183,8 @@
                 </tbody>
             </table>
 
-            <h2>2. TERMS OF SERVICE DELIVERY & FULFILLMENT</h2>
-            <p>2.1. The provision of services is carried out exclusively in electronic (digital) form via the Internet.</p>
-            <p>2.2. After generation and full payment of the generated invoice, the Provider undertakes to provide the Customer with initial access to private repositories or begin project analysis <strong>within 24 hours</strong> from the moment the funds are credited.</p>
-
             <h2>3. ACCEPTANCE AND PAYMENT PROCEDURE</h2>
-            <p>3.1. Generating an invoice on this page and its subsequent fulfillment via bank transfer to the Provider's current bank account (IBAN) constitutes full and unconditional acceptance of this Public Offer.</p>
-
-            <h2>4. REFUND AND CANCELLATION POLICY</h2>
-            <p>4.1. The Customer has the right to terminate the contract and request a refund strictly before the actual commencement of the work.</p>
+            <p>3.1. Generating a service request or invoice on this page and its subsequent fulfillment via official channels constitutes full and unconditional acceptance of this Public Offer.</p>
 
             <h2>5. PROVIDER'S LEGAL DETAILS</h2>
             <p>Sole Proprietor (FOP) Boris Petrovych Pupchenko<br>
@@ -207,16 +194,16 @@
             Official Email: mr.karalyp@gmail.com</p>
         </div>
 
-        <!-- ІНТЕРАКТИВНИЙ БЛОК ОПЛАТИ (ГЕНЕРАТОР ІНВОЙСІВ) -->
+        <!-- ІНТЕРАКТИВНИЙ БЛОК ОПЛАТИ (ГЕНЕРАТОР / ЗАПИТ НА EMAIL) -->
         <div class="payment-box">
             <h3 id="pay-title">🛒 Вибір пакету послуг та акцепт оферти</h3>
             
             <label id="select-label" for="package-select" style="font-weight: bold; display:block; margin-bottom:5px;">Оберіть необхідний пакет супроводу:</label>
             <select id="package-select" class="select-style" onchange="updatePaymentTarget()">
-                <option value="500" data-name-ua="Пакет «Ін'єкція» (Інтелектуальний супровід згідно Публічної Оферти)" data-name-en="«Hotfix» Package (Intellectual support as per Public Offer)">Пакет «Ін'єкція» — 500 UAH</option>
-                <option value="3000" data-name-ua="Пакет «Старт» (Семантична інженерія та супровід згідно Публічної Оферти)" data-name-en="«Launch» Package (Semantic engineering & support as per Public Offer)">Пакет «Старт» — 3 000 UAH</option>
-                <option value="20000" data-name-ua="Пакет «Профі R&D» (Архітектурна адаптація та R&D розробка згідно Публічної Оферти)" data-name-en="«Enterprise R&D» Package (Architectural adaptation & R&D as per Public Offer)">Пакет «Профі R&D» — 20 000 UAH</option>
-                <option value="custom" data-name-ua="Пакет «Сенсовий Консалтинг» (Договірна вартість)" data-name-en="«Semantic Consulting» (Negotiable price)">Пакет «Сенсовий Консалтинг» — Договірна</option>
+                <option value="500" data-name-ua="Пакет «Ін'єкція» (Інтелектуальний супровід згідно Публічної Оферти)" data-name-en="«Hotfix» Package">Пакет «Ін'єкція» — 500 UAH</option>
+                <option value="3000" data-name-ua="Пакет «Старт» (Семантична інженерія та супровід згідно Публічної Оферти)" data-name-en="«Launch» Package">Пакет «Старт» — 3 000 UAH</option>
+                <option value="20000" data-name-ua="Пакет «Профі R&D» (Архітектурна адаптація та R&D розробка згідно Публічної Оферти)" data-name-en="«Enterprise R&D» Package">Пакет «Профі R&D» — 20 000 UAH</option>
+                <option value="custom" data-name-ua="Пакет «Сенсовий Консалтинг» (Договірна вартість)" data-name-en="«Semantic Consulting» Package">Пакет «Сенсовий Консалтинг» — Договірна</option>
             </select>
 
             <div style="margin: 20px 0; display: flex; align-items: flex-start; gap: 10px;">
@@ -227,10 +214,11 @@
                 </label>
             </div>
 
-            <button id="pay-button" onclick="generateInvoice()" class="btn-pay">⚠️ Будь ласка, підтвердіть згоду / Please accept terms</button>
+            <!-- Гнучка кнопка: для UA працює як функція, для EN — як посилання -->
+            <a id="pay-button" href="#" class="btn-pay" onclick="handlePaymentClick(event)">⚠️ Будь ласка, підтвердіть згоду / Please accept terms</a>
         </div>
 
-        <!-- ДИНАМІЧНИЙ БЛОК ОФІЦІЙНОГО РАХУНКУ -->
+        <!-- ДИНАМІЧНИЙ БЛОК ОФІЦІЙНОГО РАХУНКУ (Тільки для UA) -->
         <div id="invoice-modal">
             <div id="invoice-content"></div>
             <button class="print-btn" onclick="window.print()">🖨️ Роздрукувати рахунок або зберегти в PDF</button>
@@ -285,129 +273,101 @@
         function togglePayButton() {
             const checkbox = document.getElementById('agree-checkbox');
             const payButton = document.getElementById('pay-button');
+            const select = document.getElementById('package-select');
+            const selectedOption = select.options[select.selectedIndex];
             
             if (checkbox.checked) {
                 payButton.style.background = '#27ae60';
                 payButton.style.pointerEvents = 'auto';
-                payButton.innerText = currentLang === 'uk' ? '📄 Сформувати офіційний рахунок' : '📄 Generate Official Invoice';
+                
+                if (currentLang === 'uk') {
+                    payButton.removeAttribute('target');
+                    payButton.href = '#';
+                    payButton.innerText = '📄 Сформувати офіційний рахунок';
+                } else {
+                    // Формуємо красивий поштовий запит для іноземців
+                    const subject = encodeURIComponent(`Invoice Request for ${selectedOption.getAttribute('data-name-en')}`);
+                    const body = encodeURIComponent(`Hello,\n\nI want to order the ${selectedOption.getAttribute('data-name-en')} (${selectedOption.value} UAH equivalent).\nPlease provide me with international payment instructions.\n\nBest regards.`);
+                    payButton.href = `mailto:mr.karalyp@gmail.com?subject=${subject}&body=${body}`;
+                    payButton.setAttribute('target', '_blank');
+                    payButton.innerText = '✉️ Request Invoice via Email';
+                }
             } else {
                 payButton.style.background = '#bdc3c7';
                 payButton.style.pointerEvents = 'none';
+                payButton.href = '#';
+                payButton.removeAttribute('target');
                 payButton.innerText = currentLang === 'uk' ? '⚠️ Будь ласка, підтвердіть згоду' : '⚠️ Please accept terms';
             }
+        }
+
+        function handlePaymentClick(event) {
+            if (currentLang === 'uk') {
+                event.preventDefault(); // Зупиняємо перехід по лінці, бо викликаємо генератор рахунку
+                generateInvoice();
+            }
+            // Якщо мова EN — подія йде стандартно (відкриває mailto посилання)
         }
 
         function generateInvoice() {
             const select = document.getElementById('package-select');
             const selectedOption = select.options[select.selectedIndex];
             const price = selectedOption.value;
-            const serviceName = currentLang === 'uk' ? selectedOption.getAttribute('data-name-ua') : selectedOption.getAttribute('data-name-en');
+            const serviceName = selectedOption.getAttribute('data-name-ua');
             
+            if (price === 'custom') {
+                alert('Для пакета "Сенсовий Консалтинг" вартість розраховується індивідуально. Будь ласка, надішліть технічне завдання на mr.karalyp@gmail.com для формування персонального рахунку.');
+                return;
+            }
+
             const today = new Date();
             const dateStr = today.getDate().toString().padStart(2, '0') + '.' + (today.getMonth()+1).toString().padStart(2, '0') + '.' + today.getFullYear();
             const invoiceNum = "OP-" + today.getFullYear() + "-" + Math.floor(1000 + Math.random() * 9000);
 
-            let html = '';
-
-            if (price === 'custom') {
-                if (currentLang === 'uk') {
-                    alert('Для пакета "Сенсовий Консалтинг" вартість розраховується індивідуально. Будь ласка, надішліть технічне завдання на mr.karalyp@gmail.com для формування персонального рахунку.');
-                } else {
-                    alert('For "Semantic Consulting" the price is calculated individually. Please send your inquiry to mr.karalyp@gmail.com.');
-                }
-                return;
-            }
-
-            if (currentLang === 'uk') {
-                html = `
-                    <div class="invoice-header">
-                        <h2>РАХУНОК-ФАКТУРА (INVOICE) № ${invoiceNum}</h2>
-                        <p><strong>від ${dateStr} р.</strong></p>
-                    </div>
-                    <p><strong>Постачальник (Виконавець):</strong> ФОП Пупченко Борис Петрович<br>
-                    РНОКПП (ІПН): 2247107119, Адреса: Вул. Медична 10/12, м. Покров, 53304, Україна</p>
-                    
-                    <p><strong>Платник (Замовник):</strong> Клієнт інтернет-майданчика (Акцептант Публічної Оферти)</p>
-                    
-                    <p><strong>Банківські реквізити отримувача (ФОП):</strong><br>
-                    <strong>Банк:</strong> АТ КБ «ПриватБанк»<br>
-                    <strong>Поточний рахунок (IBAN):</strong> <code style="font-size:1.2em; background:#eee; padding:2px 5px;">UA033052990000026006050668381</code></p>
-                    
-                    <table class="invoice-table">
-                        <thead>
-                            <tr>
-                                <th>№</th>
-                                <th>Найменування послуг (опис операції)</th>
-                                <th>К-сть</th>
-                                <th>Ціна (UAH)</th>
-                                <th>Сума (UAH)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>${serviceName}</td>
-                                <td>1 послуга</td>
-                                <td>${price},00</td>
-                                <td><strong>${price},00</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p style="text-align: right; font-size: 1.1em;"><strong>Всього до сплати: ${price} грн 00 коп.</strong></p>
-                    <p style="font-size:0.9em; color:#555; background:#f9f9f9; padding:10px; border-left:3px solid #333;">
-                        <strong>ПРИЗНАЧЕННЯ ПЛАТЕЖУ (Скопіюйте це в банк):</strong><br>
-                        <code>Оплата за ${serviceName} згідно рахунку № ${invoiceNum} від ${dateStr}. Без ПДВ.</code>
-                    </p>
-                    <p style="margin-top:4px; font-size:0.85em; color:#666;">Рахунок створено автоматично та є підставою для оплати згідно з умовами Публічної Оферти. Документ не потребує мокрої печатки.</p>
-                `;
-            } else {
-                html = `
-                    <div class="invoice-header">
-                        <h2>INVOICE (РАХУНОК-ФАКТУРА) № ${invoiceNum}</h2>
-                        <p><strong>Date: ${dateStr}</strong></p>
-                    </div>
-                    <p><strong>Provider:</strong> Sole Proprietor (FOP) Boris Petrovych Pupchenko<br>
-                    Tax ID: 2247107119, Address: 10/12 Medychna St, Pokrov, 53304, Ukraine</p>
-                    
-                    <p><strong>Customer:</strong> Platform Client (Public Offer Acceptor)</p>
-                    
-                    <p><strong>Bank Details for Payment (FOP Current Account):</strong><br>
-                    <strong>Bank:</strong> JSC CB "PrivatBank"<br>
-                    <strong>IBAN Account:</strong> <code style="font-size:1.2em; background:#eee; padding:2px 5px;">UA033052990000026006050668381</code></p>
-                    
-                    <table class="invoice-table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Description of Services</th>
-                                <th>Qty</th>
-                                <th>Price (UAH)</th>
-                                <th>Total (UAH)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>${serviceName}</td>
-                                <td>1</td>
-                                <td>${price}.00</td>
-                                <td><strong>${price}.00</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p style="text-align: right; font-size: 1.1em;"><strong>Total Amount: ${price}.00 UAH</strong></p>
-                    <p style="font-size:0.9em; color:#555; background:#f9f9f9; padding:10px; border-left:3px solid #333;">
-                        <strong>PAYMENT PURPOSE (Copy this to your bank transfer):</strong><br>
-                        <code>Payment for ${serviceName} as per Invoice No ${invoiceNum} dated ${dateStr}. No VAT.</code>
-                    </p>
-                    <p style="margin-top:4px; font-size:0.85em; color:#666;">This invoice is generated automatically and serves as a valid payment request under the Public Offer terms.</p>
-                `;
-            }
+            const html = `
+                <div class="invoice-header">
+                    <h2>РАХУНОК-ФАКТУРА (INVOICE) № ${invoiceNum}</h2>
+                    <p><strong>від ${dateStr} р.</strong></p>
+                </div>
+                <p><strong>Постачальник (Виконавець):</strong> ФОП Пупченко Борис Петрович<br>
+                РНОКПП (ІПН): 2247107119, Адреса: Вул. Медична 10/12, м. Покров, 53304, Україна</p>
+                
+                <p><strong>Платник (Замовник):</strong> Клієнт інтернет-майданчика (Акцептант Публічної Оферти)</p>
+                
+                <p><strong>Банківські реквізити отримувача (ФОП):</strong><br>
+                <strong>Банк:</strong> АТ КБ «ПриватБанк»<br>
+                <strong>Поточний рахунок (IBAN):</strong> <code style="font-size:1.2em; background:#eee; padding:2px 5px;">UA033052990000026006050668381</code></p>
+                
+                <table class="invoice-table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Найменування послуг (опис операції)</th>
+                            <th>К-сть</th>
+                            <th>Ціна (UAH)</th>
+                            <th>Сума (UAH)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>${serviceName}</td>
+                            <td>1 послуга</td>
+                            <td>${price},00</td>
+                            <td><strong>${price},00</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align: right; font-size: 1.1em;"><strong>Всього до сплати: ${price} грн 00 коп.</strong></p>
+                <div style="font-size:0.9em; color:#333; background:#f9f9f9; padding:12px; border-left:4px solid #3498db; margin: 15px 0;">
+                    <strong>ПРИЗНАЧЕННЯ ПЛАТЕЖУ (Скопіюйте у свій клієнт-банк):</strong><br>
+                    <code style="display:block; margin-top:5px; background:#fff; padding:5px; border:1px solid #ddd;">Оплата за ${serviceName} згідно рахунку № ${invoiceNum} від ${dateStr}. Без ПДВ.</code>
+                </div>
+                <p style="margin-top:4px; font-size:0.85em; color:#666;">Рахунок створено автоматично та є підставою для оплати згідно з умовами Публічної Оферти.</p>
+            `;
 
             document.getElementById('invoice-content').innerHTML = html;
             document.getElementById('invoice-modal').style.display = 'block';
-            
-            // Плавний скролл до інвойсу
             document.getElementById('invoice-modal').scrollIntoView({ behavior: 'smooth' });
         }
 
