@@ -103,8 +103,8 @@
                         <td class="price-tag">20 000 грн</td>
                     </tr>
                     <tr>
-                        <td><strong>Пакет «Сенсовий Консалтинг»</strong></td>
-                        <td>Індивідуальне проектування складних інформаційних систем, виправлення сигналу данных, інтеграція ШІ-моделей під архітектуру замовника, супровід Enterprise-рівня.</td>
+                        <td><strong>Пакет «Сенсовий Коншалтинг»</strong></td>
+                        <td>Індивідуальне проектування складних інформаційних систем, виправлення сигналу даних, інтеграція ШІ-моделей під архітектуру замовника, супровід Enterprise-рівня.</td>
                         <td class="price-tag">Договірна</td>
                     </tr>
                 </tbody>
@@ -147,6 +147,7 @@
 
             <h2>1. SUBJECT OF THE AGREEMENT & SERVICE CATALOG</h2>
             <p>1.1. The Provider, through the online platform, provides the Customer with services in intellectual support, semantic engineering, algorithmization of connections in artificial intelligence models, adaptation, and technical support of software modules (hereinafter referred to as the Services).</p>
+            <p>1.2. The base module architecture code is Open Source. The subject of monetary settlement covers consulting architectures, personalized structural configuration, logical data stream mapping, and integration debugging.</p>
             
             <h3>Service Fees (Tariffs)</h3>
             <p>Below are the current rates for support packages available for international orders via invoice settlement (processed in USD):</p>
@@ -183,8 +184,15 @@
                 </tbody>
             </table>
 
+            <h2>2. TERMS OF SERVICE DELIVERY</h2>
+            <p>2.1. The fulfillment of services (delivery of dynamic digital items) is distributed exclusively using remote frameworks via the Internet.</p>
+            <p>2.2. Upon confirmation of client payment execution, the Provider guarantees code repository provisioning or initialization of analytical architecture setup **within 24 hours**.</p>
+
             <h2>3. ACCEPTANCE AND PAYMENT PROCEDURE</h2>
             <p>3.1. Generating an official invoice on this platform after confirming acceptance of terms, followed by a direct wire transfer (SWIFT/IBAN) to the provided bank details, constitutes full and unconditional acceptance of this Public Offer.</p>
+
+            <h2>4. REFUND AND CANCELLATION POLICY</h2>
+            <p>4.1. Due to the digital scope of service provision, the Customer explicitly maintains the right to rescind from the contractual structure and request a transaction reversal **only before actual work performance has commenced**.</p>
 
             <h2>5. PROVIDER'S LEGAL DETAILS</h2>
             <p>Sole Proprietor (FOP) Boris Petrovych Pupchenko<br>
@@ -195,7 +203,7 @@
             Official Email: mr.karalyp@gmail.com</p>
         </div>
 
-        <!-- ІНТЕРАКТИВНИЙ БЛОК ОПЛАТИ (ГЕНЕРАТОР РАХУНКІВ) -->
+        <!-- ІНТЕРАКТИВНИЙ БЛОК ОПЛАТИ -->
         <div class="payment-box">
             <h3 id="pay-title">🛒 Вибір пакету послуг та акцепт оферти</h3>
             
@@ -215,12 +223,11 @@
                 </label>
             </div>
 
-            <!-- Універсальна кнопка для генерації рахунків локально на клієнті -->
             <a id="pay-button" href="#" class="btn-pay" onclick="handlePaymentClick(event)">⚠️ Будь ласка, підтвердіть згоду / Please accept terms</a>
         </div>
 
-        <!-- ДИНАМІЧНИЙ БЛОК ОФІЦІЙНОГО РАХУНКУ (Працює для обидвох мов) -->
-        <div id="invoice-modal">
+        <!-- ДИНАМІЧНИЙ БЛОК РАХУНКУ -->
+        <div class="invoice-modal" id="invoice-modal">
             <div id="invoice-content"></div>
             <button class="print-btn" id="print-btn-text" onclick="window.print()">🖨️ Роздрукувати рахунок або зберегти в PDF</button>
         </div>
@@ -402,12 +409,12 @@
                                 <td>1</td>
                                 <td>${serviceNameEn}</td>
                                 <td>1 srvc</td>
-                                <td>$${priceUsd}.00</td>
-                                <td><strong>$${priceUsd}.00</strong></td>
+                                <td>\$${priceUsd}.00</td>
+                                <td><strong>\$${priceUsd}.00</strong></td>
                             </tr>
                         </tbody>
                     </table>
-                    <p style="text-align: right; font-size: 1.1em;"><strong>Total Amount Due: $${priceUsd}.00 USD</strong></p>
+                    <p style="text-align: right; font-size: 1.1em;"><strong>Total Amount Due: \$${priceUsd}.00 USD</strong></p>
                     <div style="font-size:0.9em; color:#333; background:#f9f9f9; padding:12px; border-left:4px solid #3498db; margin: 15px 0;">
                         <strong>REMITTANCE INFORMATION (Payment Reference):</strong><br>
                         <code style="display:block; margin-top:5px; background:#fff; padding:5px; border:1px solid #ddd;">Payment for computer programming services under Invoice № ${invoiceNum} dated ${dateStr}. No VAT.</code>
