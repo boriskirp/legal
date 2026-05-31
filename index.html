@@ -13,22 +13,19 @@
         .pricing-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
         .pricing-table th, .pricing-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
         .pricing-table th { background-color: #f2f2f2; color: #2c3e50; }
-        .price-tag { font-weight: bold; color: #27ae60; white-space: nowrap; }
+        .price-tag { font-weight: bold; color: #27ae60; white-space: nowrap; display: block; margin-bottom: 2px; }
         footer { margin-top: 50px; font-size: 0.9em; color: #7f8c8d; text-align: center; line-height: 1.8; }
         
-        /* Стилі для перемикача мов */
         .lang-switcher { position: absolute; top: 20px; right: 20px; display: flex; gap: 5px; }
         .lang-btn { background: #e0e0e0; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.85em; color: #555; transition: all 0.2s ease; }
         .lang-btn.active { background: #3498db; color: white; }
         .lang-btn:hover { background: #bdc3c7; color: #333; }
 
-        /* Стилі для інтерактивного блоку оплати */
         .payment-box { margin-top: 40px; padding: 30px; border: 2px solid #3498db; border-radius: 12px; background: #f7faff; }
         .payment-box h3 { margin-top: 0; color: #2c3e50; }
         .select-style { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 1em; margin-bottom: 15px; background: white; font-family: inherit; }
         .btn-pay { display: inline-block; background: #bdc3c7; color: white; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: bold; font-size: 1.1em; pointer-events: none; transition: 0.3s; text-align: center; width: 100%; box-sizing: border-box; cursor: pointer; border: none; }
 
-        /* Екран згенерованого інвойсу */
         #invoice-modal { display: none; margin-top: 30px; padding: 30px; border: 1px dashed #333; background: #fff; border-radius: 4px; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
         .invoice-header { text-align: center; border-bottom: 2px solid #333; padding-bottom: 15px; margin-bottom: 20px; }
         .invoice-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
@@ -36,7 +33,6 @@
         .invoice-table th { background: #f2f2f2; }
         .print-btn { background: #27ae60; color: white; padding: 10px 20px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 20px; }
 
-        /* Логіка приховування елементів */
         .lang-en, footer .lang-en { display: none; }
 
         @media print {
@@ -75,56 +71,65 @@
             <p>1.1. Виконавець через інтернет-майданчик надає Замовнику послуги з інтелектуального супроводу, семантичної інженерії, алгоритмізації зв'язків моделей штучного інтелекту, адаптації та технічної підтримки програмних модулів (надалі — Послуги).</p>
             <p>1.2. Базовий код модулів є відкритим (Open Source). Предметом оплати є інтелектуальний супровід, індивідуальна настройка логіки, побудова семантичних зв'язків та валідація інтеграції проекту згідно з обраним пакетом послуг.</p>
             
-            <h3>Вартість послуг (Тарифи)</h3>
-            <p>Нижче наведено актуальну вартість пакетів супроводу, доступних для замовлення та оплати в національній валюті України — гривні (UAH):</p>
+            <h3>Вартість послуг (Тарифи в UAH / USD)</h3>
             
             <table class="pricing-table">
                 <thead>
                     <tr>
                         <th>Назва послуги (пакету)</th>
                         <th>Опис, обсяг послуг та супровід</th>
-                        <th>Вартість (UAH)</th>
+                        <th>Вартість (Мультивалютна)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Пакет «Ін'єкція»</strong></td>
+                        <td><strong>Пакет «Ін'єкція» (Hotfix)</strong></td>
                         <td>Виправлення локальної помилки у семантичній логіці або інформаційній структурі: 1 проект, 1 інженерна консультація.</td>
-                        <td class="price-tag">500 грн</td>
+                        <td>
+                            <span class="price-tag">500 UAH</span>
+                            <span class="price-tag" style="color:#7f8c8d; font-size:0.9em;">$15 USD</span>
+                        </td>
                     </tr>
                     <tr>
-                        <td><strong>Пакет «Старт»</strong></td>
+                        <td><strong>Пакет «Старт» (Launch)</strong></td>
                         <td>Базова валідація інтеграції модулів, первинне алгоритмічне налаштування логіки під 1 проект, до 2 консультацій розробника.</td>
-                        <td class="price-tag">3 000 грн</td>
+                        <td>
+                            <span class="price-tag">3 000 UAH</span>
+                            <span class="price-tag" style="color:#7f8c8d; font-size:0.9em;">$75 USD</span>
+                        </td>
                     </tr>
                     <tr>
-                        <td><strong>Пакет «Профі R&D»</strong></td>
+                        <td><strong>Пакет «Профі R&D» (Enterprise)</strong></td>
                         <td>Глибока архітектурна адаптація, оптимізація продуктивності семантичного ядра, розширений супровід проекту та до 5 інженерних консультацій.</td>
-                        <td class="price-tag">20 000 грн</td>
+                        <td>
+                            <span class="price-tag">20 000 UAH</span>
+                            <span class="price-tag" style="color:#7f8c8d; font-size:0.9em;">$500 USD</span>
+                        </td>
                     </tr>
                     <tr>
-                        <td><strong>Пакет «Сенсовий Коншалтинг»</strong></td>
+                        <td><strong>Пакет «Сенсовий Консалтинг»</strong></td>
                         <td>Індивідуальне проектування складних інформаційних систем, виправлення сигналу даних, інтеграція ШІ-моделей під архітектуру замовника, супровід Enterprise-рівня.</td>
-                        <td class="price-tag">Договірна</td>
+                        <td class="price-tag">Договірна / Negotiable</td>
                     </tr>
                 </tbody>
             </table>
 
             <h2>2. УМОВИ НАДАННЯ ТА ДОСТАВКИ ПОСЛУГ</h2>
-            <p>2.1. Надання послуг (доставка цифрового продукту) здійснюється виключно в електронній (цифровій) формі через мережу Інтернет.</p>
-            <p>2.2. Після повної оплати вартості обраного пакету послуг (або передоплати згідно з умовами договірного пакету), Виконавець зобов’язується надати Замовнику первинний доступ до закритих репозиторіїв або розпочати аналіз проекту <strong>протягом 24 годин</strong> з моменту зарахування коштів.</p>
+            <p>2.1. Надання послуг здійснюється виключно в електронній формі через мережу Інтернет.</p>
+            <p>2.2. Виконавець зобов’язується надати Замовнику доступ до репозиторіїв або розпочати аналіз проекту <strong>протягом 24 годин</strong> з моменту зарахування коштів.</p>
 
             <h2>3. ПОРЯДОК АКЦЕПТУ ТА ОПЛАТИ</h2>
-            <p>3.1. Генерація Замовником рахунку-фактури на сайті після проставлення відмітки про ознайомлення, та подальша оплата цього рахунку через клієнт-банк за вказаними реквізитами (IBAN) є повним і безумовним прийняттям (акцептом) умов цієї Публічної Оферти.</p>
+            <p>3.1. Генерація рахунку-фактури та його оплата через клієнт-банк за вказаними реквізитами (IBAN) є повним і безумовним прийняттям (акцептом) цієї Оферти.</p>
 
             <h2>4. ПРАВИЛА ТА УМОВИ ПОВЕРНЕННЯ КОШТІВ</h2>
-            <p>4.1. Оскільки предметом договору є надання послуг, Замовник має право відмовитися від договору та повернути кошти <strong>до моменту фактичного початку виконання робіт</strong>.</p>
+            <p>4.1. Замовник має право повернути кошти <strong>до моменту фактичного початку виконання робіт</strong>.</p>
 
-            <h2>5. РЕКВІЗИТИ ВИКОНАВЦЯ (ВЛАСНИКА)</h2>
+            <h2>5. РЕКВІЗИТИ ВИКОНАВЦЯ</h2>
             <p>ФОП Пупченко Борис Петрович<br>
             РНОКПП (ІПН): 2247107119<br>
             Юридична адреса: 53300, Україна, Дніпропетровська обл., м. Покров, вул. Медична, б. 10, кв. 12<br>
-            Поточний рахунок (IBAN): UA033052990000026006050668381 в АТ КБ «ПриватБанк»<br>
+            <strong>Гривневий рахунок (UAH IBAN):</strong> UA033052990000026006050668381 в АТ КБ «ПриватБанк»<br>
+            <strong>Доларовий рахунок (USD IBAN):</strong> UA203052990000026000050665078 в АТ КБ «ПриватБанк» (SWIFT: PBANUA2X)<br>
             Контактний телефон: +38(093)-206-0081<br>
             Офіційний email: mr.karalyp@gmail.com</p>
         </div>
@@ -139,66 +144,73 @@
                 <strong>Service Provider:</strong> Sole Proprietor (FOP) Boris Petrovych Pupchenko<br>
                 <strong>Tax ID (RNOKPP/TIN):</strong> 2247107119<br>
                 <strong>Registered Address:</strong> 53300, Ukraine, Dnipropetrovsk reg., Pokrov, 10 Medychna str., apt. 12<br>
-                <strong>Date of Registration:</strong> May 06, 2026<br>
-                <strong>NACE (KVED) Codes:</strong> 62.01, 62.02, 62.03, 62.09, 63.11, 63.99, 70.19, 74.11, 74.10, 58.29<br>
                 <strong>Support Email:</strong> mr.karalyp@gmail.com<br>
                 <strong>Phone:</strong> +38(093)-206-0081
             </div>
 
             <h2>1. SUBJECT OF THE AGREEMENT & SERVICE CATALOG</h2>
-            <p>1.1. The Provider, through the online platform, provides the Customer with services in intellectual support, semantic engineering, algorithmization of connections in artificial intelligence models, adaptation, and technical support of software modules (hereinafter referred to as the Services).</p>
-            <p>1.2. The base module architecture code is Open Source. The subject of monetary settlement covers consulting architectures, personalized structural configuration, logical data stream mapping, and integration debugging.</p>
+            <p>1.1. The Provider provides services in intellectual support, semantic engineering, algorithmization of connections in artificial intelligence models, and technical support.</p>
+            <p>1.2. The base module architecture code is Open Source. The subject of monetary settlement covers consulting architectures and logical data stream mapping.</p>
             
-            <h3>Service Fees (Tariffs)</h3>
-            <p>Below are the current rates for support packages available for international orders via invoice settlement (processed in USD):</p>
+            <h3>Service Fees (Tariffs in UAH / USD)</h3>
             
             <table class="pricing-table">
                 <thead>
                     <tr>
                         <th>Service Package</th>
                         <th>Scope of Work & Support Included</th>
-                        <th>Price (USD)</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><strong>«Hotfix» (Injection)</strong></td>
-                        <td>Fixing a local bug in semantic logic or information structure: 1 project, 1 engineering consultation.</td>
-                        <td class="price-tag">$15 USD</td>
+                        <td>Fixing a local bug in semantic logic or information structure.</td>
+                        <td>
+                            <span class="price-tag">$15 USD</span>
+                            <span class="price-tag" style="color:#7f8c8d; font-size:0.9em;">500 UAH</span>
+                        </td>
                     </tr>
                     <tr>
                         <td><strong>«Launch» (Start)</strong></td>
-                        <td>Basic validation of module integration, initial algorithmic logic configuration for 1 project, up to 2 developer consultations.</td>
-                        <td class="price-tag">$75 USD</td>
+                        <td>Basic validation of module integration, algorithmic logic configuration.</td>
+                        <td>
+                            <span class="price-tag">$75 USD</span>
+                            <span class="price-tag" style="color:#7f8c8d; font-size:0.9em;">3 000 UAH</span>
+                        </td>
                     </tr>
                     <tr>
                         <td><strong>«Enterprise R&D» (Pro R&D)</strong></td>
-                        <td>Deep architectural adaptation, performance optimization of the semantic core, extended project support, and up to 5 engineering consultations.</td>
-                        <td class="price-tag">$500 USD</td>
+                        <td>Deep architectural adaptation, performance optimization of the core.</td>
+                        <td>
+                            <span class="price-tag">$500 USD</span>
+                            <span class="price-tag" style="color:#7f8c8d; font-size:0.9em;">20 000 UAH</span>
+                        </td>
                     </tr>
                     <tr>
                         <td><strong>«Semantic Consulting»</strong></td>
-                        <td>Custom design of complex information systems, data signal correction, AI model integration tailored to customer architecture, Enterprise-level support.</td>
-                        <td class="price-tag">Negotiable</td>
+                        <td>Custom design of complex systems, AI integration.</td>
+                        <td class="price-tag">Negotiable / Договірна</td>
                     </tr>
                 </tbody>
             </table>
 
             <h2>2. TERMS OF SERVICE DELIVERY</h2>
-            <p>2.1. The fulfillment of services (delivery of dynamic digital items) is distributed exclusively using remote frameworks via the Internet.</p>
-            <p>2.2. Upon confirmation of client payment execution, the Provider guarantees code repository provisioning or initialization of analytical architecture setup **within 24 hours**.</p>
+            <p>2.1. The fulfillment of services is distributed exclusively via the Internet.</p>
+            <p>2.2. The Provider guarantees setup initialization **within 24 hours** from payment receipt.</p>
 
             <h2>3. ACCEPTANCE AND PAYMENT PROCEDURE</h2>
-            <p>3.1. Generating an official invoice on this platform after confirming acceptance of terms, followed by a direct wire transfer (SWIFT/IBAN) to the provided bank details, constitutes full and unconditional acceptance of this Public Offer.</p>
+            <p>3.1. Generating an invoice and completing a direct wire transfer (SWIFT/IBAN) constitutes full acceptance of this Public Offer.</p>
 
             <h2>4. REFUND AND CANCELLATION POLICY</h2>
-            <p>4.1. Due to the digital scope of service provision, the Customer explicitly maintains the right to rescind from the contractual structure and request a transaction reversal **only before actual work performance has commenced**.</p>
+            <p>4.1. The Customer may request a transaction reversal **only before actual work performance has commenced**.</p>
 
             <h2>5. PROVIDER'S LEGAL DETAILS</h2>
             <p>Sole Proprietor (FOP) Boris Petrovych Pupchenko<br>
             Tax ID (RNOKPP): 2247107119<br>
-            Registered Address: 53300, Ukraine, Dnipropetrovsk reg., Pokrov, 10 Medychna str., apt. 12<br>
-            IBAN Code (USD Account): UA203052990000026000050665078 at JSC CB "PRIVATBANK"<br>
+            Registered Address: 10 Medychna str., apt. 12, Pokrov, Dnipropetrovsk reg., 53300, Ukraine<br>
+            <strong>UAH Account:</strong> IBAN UA033052990000026006050668381 at JSC CB "PRIVATBANK"<br>
+            <strong>USD Account:</strong> IBAN UA203052990000026000050665078 at JSC CB "PRIVATBANK"<br>
             Bank SWIFT Code: PBANUA2X<br>
             Official Email: mr.karalyp@gmail.com</p>
         </div>
@@ -207,12 +219,19 @@
         <div class="payment-box">
             <h3 id="pay-title">🛒 Вибір пакету послуг та акцепт оферти</h3>
             
-            <label id="select-label" for="package-select" style="font-weight: bold; display:block; margin-bottom:5px;">Оберіть необхідний пакет супроводу:</label>
+            <label id="select-label" for="package-select" style="font-weight: bold; display:block; margin-bottom:5px;">Оберіть валюту та необхідний пакет супроводу:</label>
             <select id="package-select" class="select-style" onchange="updatePaymentTarget()">
-                <option value="500" data-usd="15" data-name-ua="Пакет «Ін'єкція» (Інтелектуальний супровід згідно Публічної Оферти)" data-name-en="«Hotfix» Package (Intellectual support according to Public Offer)">Пакет «Ін'єкція» — 500 UAH / $15 USD</option>
-                <option value="3000" data-usd="75" data-name-ua="Пакет «Старт» (Семантична інженерія та супровід згідно Публічної Оферти)" data-name-en="«Launch» Package (Semantic engineering according to Public Offer)">Пакет «Старт» — 3 000 UAH / $75 USD</option>
-                <option value="20000" data-usd="500" data-name-ua="Пакет «Профі R&D» (Архітектурна адаптація та R&D розробка згідно Публічної Оферти)" data-name-en="«Enterprise R&D» Package (Architectural adaptation according to Public Offer)">Пакет «Профі R&D» — 20 000 UAH / $500 USD</option>
-                <option value="custom" data-usd="custom" data-name-ua="Пакет «Сенсовий Консалтинг» (Договірна вартість)" data-name-en="«Semantic Consulting» Package (Negotiable)">Пакет «Сенсовий Консалтинг» — Договірна / Negotiable</option>
+                <!-- Гривневі пакети -->
+                <option value="500" data-currency="UAH" data-name-ua="Пакет «Ін'єкція» (Інтелектуальний супровід згідно Публічної Оферти)" data-name-en="«Hotfix» Package (Intellectual support according to Public Offer)">Пакет «Ін'єкція» — 500 UAH</option>
+                <option value="3000" data-currency="UAH" data-name-ua="Пакет «Старт» (Семантична інженерія та супровід згідно Публічної Оферти)" data-name-en="«Launch» Package (Semantic engineering according to Public Offer)">Пакет «Старт» — 3 000 UAH</option>
+                <option value="20000" data-currency="UAH" data-name-ua="Пакет «Профі R&D» (Архітектурна адаптація та R&D розробка згідно Публічної Оферти)" data-name-en="«Enterprise R&D» Package (Architectural adaptation according to Public Offer)">Пакет «Профі R&D» — 20 000 UAH</option>
+                
+                <!-- Доларові пакети -->
+                <option value="15" data-currency="USD" data-name-ua="Пакет «Ін'єкція» (Міжнародний рахунок в USD)" data-name-en="«Hotfix» Package — $15 USD">«Hotfix» Package — $15 USD</option>
+                <option value="75" data-currency="USD" data-name-ua="Пакет «Старт» (Міжнародний рахунок в USD)" data-name-en="«Launch» Package — $75 USD">«Launch» Package — $75 USD</option>
+                <option value="500" data-currency="USD" data-name-ua="Пакет «Профі R&D» (Міжнародний рахунок в USD)" data-name-en="«Enterprise R&D» Package — $500 USD">«Enterprise R&D» Package — $500 USD</option>
+                
+                <option value="custom" data-currency="custom" data-name-ua="Пакет «Сенсовий Консалтинг» (Договірна вартість)" data-name-en="«Semantic Consulting» Package (Negotiable)">Пакет «Сенсовий Консалтинг» — Договірна / Negotiable</option>
             </select>
 
             <div style="margin: 20px 0; display: flex; align-items: flex-start; gap: 10px;">
@@ -259,7 +278,7 @@
                 enElements.forEach(el => el.style.display = 'none');
                 buttons[0].classList.add('active');
                 document.getElementById('pay-title').innerText = '🛒 Вибір пакету послуг та акцепт оферти';
-                document.getElementById('select-label').innerText = 'Оберіть необхідний пакет супроводу:';
+                document.getElementById('select-label').innerText = 'Оберіть валюту та необхідний пакет супроводу:';
                 document.getElementById('print-btn-text').innerText = '🖨️ Роздрукувати рахунок або зберегти в PDF';
             } else {
                 uaBlock.style.display = 'none';
@@ -267,8 +286,8 @@
                 uaElements.forEach(el => el.style.display = 'none');
                 enElements.forEach(el => { if(el.id !== 'content-en') el.style.display = 'inline'; });
                 buttons[1].classList.add('active');
-                document.getElementById('pay-title').innerText = '🛒 Service Selection & Offer Acceptance';
-                document.getElementById('select-label').innerText = 'Select the required support package:';
+                document.getElementById('pay-title').innerText = '🛒 Service & Currency Selection';
+                document.getElementById('select-label').innerText = 'Select currency and required support package:';
                 document.getElementById('print-btn-text').innerText = '🖨️ Print Invoice or Save to PDF';
             }
             togglePayButton();
@@ -308,12 +327,13 @@
         function generateInvoice() {
             const select = document.getElementById('package-select');
             const selectedOption = select.options[select.selectedIndex];
+            const currency = selectedOption.getAttribute('data-currency');
             
-            if (selectedOption.value === 'custom') {
+            if (currency === 'custom') {
                 if (currentLang === 'uk') {
-                    alert('Для пакета "Сенсовий Консалтинг" вартість розраховується індивідуально. Будь ласка, надішліть технічне завдання на mr.karalyp@gmail.com для формування персонального рахунку.');
+                    alert('Для пакета "Сенсовий Консалтинг" вартість розраховується індивідуально. Надішліть ТЗ на mr.karalyp@gmail.com.');
                 } else {
-                    alert('For the "Semantic Consulting" package, pricing is negotiable. Please send your project requirements to mr.karalyp@gmail.com to receive a custom invoice.');
+                    alert('For the "Semantic Consulting" package, pricing is negotiable. Please send details to mr.karalyp@gmail.com.');
                 }
                 return;
             }
@@ -321,11 +341,32 @@
             const today = new Date();
             const dateStr = today.getDate().toString().padStart(2, '0') + '.' + (today.getMonth()+1).toString().padStart(2, '0') + '.' + today.getFullYear();
             const invoiceNum = "OP-" + today.getFullYear() + "-" + Math.floor(1000 + Math.random() * 9000);
+            const price = selectedOption.value;
 
             let html = '';
+            let bankAccountDetails = '';
+            let correspondentBanksHtml = '';
+            let currencySign = currency;
+            
+            if (currency === 'UAH') {
+                bankAccountDetails = `<strong>Поточний рахунок (IBAN):</strong> <code style="font-size:1.1em; background:#eee; padding:2px 5px;">UA033052990000026006050668381</code><br><strong>Валюта:</strong> UAH`;
+            } else if (currency === 'USD') {
+                bankAccountDetails = `<strong>Bank SWIFT Code:</strong> <code style="font-size:1.1em; background:#eee; padding:2px 5px;">PBANUA2X</code><br>
+                <strong>IBAN Code (USD):</strong> <code style="font-size:1.1em; background:#eee; padding:2px 5px;">UA203052990000026000050665078</code><br>
+                <strong>Currency:</strong> USD`;
+                currencySign = '$';
+                
+                correspondentBanksHtml = `
+                    <p><strong>BANKS CORRESPONDENT (Банки-кореспонденти):</strong></p>
+                    <ul style="font-size:0.9em; padding-left:20px; margin:5px 0;">
+                        <li><strong>JP Morgan Chase Bank, New York, USA</strong><br>SWIFT Code: CHASUS33 | Account: 001-1-000080</li>
+                        <li><strong>The Bank of New York Mellon, New York, USA</strong><br>SWIFT Code: IRVT US 3N | Account: 890-0085-754</li>
+                        <li><strong>Citibank N.A., New York, USA</strong><br>SWIFT Code: CITI US 33 | Account: 36445343</li>
+                    </ul>
+                `;
+            }
 
             if (currentLang === 'uk') {
-                const price = selectedOption.value;
                 const serviceName = selectedOption.getAttribute('data-name-ua');
                 html = `
                     <div class="invoice-header">
@@ -334,13 +375,9 @@
                     </div>
                     <p><strong>Постачальник (Виконавець):</strong> ФОП Пупченко Борис Петрович<br>
                     РНОКПП (ІПН): 2247107119, Адреса: вул. Медична, б. 10, кв. 12, м. Покров, 53300, Україна</p>
-                    
                     <p><strong>Платник (Замовник):</strong> Клієнт інтернет-майданчика (Акцептант Публічної Оферти)</p>
-                    
-                    <p><strong>Банківські реквізити отримувача (ФОП):</strong><br>
-                    <strong>Банк:</strong> АТ КБ «ПриватБанк»<br>
-                    <strong>Поточний рахунок (IBAN):</strong> <code style="font-size:1.1em; background:#eee; padding:2px 5px;">UA033052990000026006050668381</code><br>
-                    <strong>Валюта:</strong> UAH</p>
+                    <p><strong>Банківські реквізити отримувача (ФОП) в АТ КБ «ПриватБанк»:</strong><br>${bankAccountDetails}</p>
+                    ${correspondentBanksHtml}
                     
                     <table class="invoice-table">
                         <thead>
@@ -348,8 +385,8 @@
                                 <th>№</th>
                                 <th>Найменування послуг (опис операції)</th>
                                 <th>К-сть</th>
-                                <th>Ціна (UAH)</th>
-                                <th>Сума (UAH)</th>
+                                <th>Ціна</th>
+                                <th>Сума</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -357,20 +394,18 @@
                                 <td>1</td>
                                 <td>${serviceName}</td>
                                 <td>1 послуга</td>
-                                <td>${price},00</td>
-                                <td><strong>${price},00</strong></td>
+                                <td>${price},00 ${currencySign}</td>
+                                <td><strong>${price},00 ${currencySign}</strong></td>
                             </tr>
                         </tbody>
                     </table>
-                    <p style="text-align: right; font-size: 1.1em;"><strong>Всього до сплати: ${price} грн 00 коп.</strong></p>
+                    <p style="text-align: right; font-size: 1.1em;"><strong>Всього до сплати: ${price},00 ${currencySign}</strong></p>
                     <div style="font-size:0.9em; color:#333; background:#f9f9f9; padding:12px; border-left:4px solid #3498db; margin: 15px 0;">
-                        <strong>ПРИЗНАЧЕННЯ ПЛАТЕЖУ (Скопіюйте у свій клієнт-банк):</strong><br>
+                        <strong>ПРИЗНАЧЕННЯ ПЛАТЕЖУ:</strong><br>
                         <code style="display:block; margin-top:5px; background:#fff; padding:5px; border:1px solid #ddd;">Оплата за послуги згідно рахунку № ${invoiceNum} від ${dateStr}. Без ПДВ.</code>
                     </div>
-                    <p style="margin-top:4px; font-size:0.85em; color:#666;">Рахунок створено автоматично та є підставою для оплати згідно з умовами Публічної Оферти.</p>
                 `;
             } else {
-                const priceUsd = selectedOption.getAttribute('data-usd');
                 const serviceNameEn = selectedOption.getAttribute('data-name-en');
                 html = `
                     <div class="invoice-header">
@@ -378,21 +413,10 @@
                         <p><strong>Date: ${dateStr}</strong></p>
                     </div>
                     <p><strong>Beneficiary (Service Provider):</strong> Sole Proprietor (FOP) Boris Petrovych Pupchenko<br>
-                    Tax ID (RNOKPP): 2247107119<br>
-                    Address: 10 Medychna str., apt. 12, Pokrov, Dnipropetrovsk reg., 53300, Ukraine</p>
-                    
+                    Address: 10 Medychna str., Pokrov, 53300, Ukraine</p>
                     <p><strong>Customer (Payer):</strong> Client of the online platform (Acceptor of the Public Offer)</p>
-                    
-                    <p><strong>BANKING DETAILS FOR WIRE TRANSFER (USD Account):</strong><br>
-                    <strong>Beneficiary Bank:</strong> JSC CB "PRIVATBANK", Ukraine<br>
-                    <strong>Bank SWIFT Code:</strong> <code style="font-size:1.1em; background:#eee; padding:2px 5px;">PBANUA2X</code><br>
-                    <strong>IBAN Code:</strong> <code style="font-size:1.1em; background:#eee; padding:2px 5px;">UA203052990000026000050665078</code><br>
-                    <strong>Currency:</strong> USD</p>
-                    
-                    <p><strong>CORRESPONDENT BANKS (Routing via US):</strong><br>
-                    • <strong>Bank 1:</strong> JP Morgan Chase Bank, New York, USA (SWIFT: CHASUS33, Acc: 001-1-000080)<br>
-                    • <strong>Bank 2:</strong> Citibank N.A., New York, USA (SWIFT: CITIUS33, Acc: 36445343)<br>
-                    • <strong>Bank 3:</strong> The Bank of New York Mellon, New York, USA (SWIFT: IRVTUS3N, Acc: 890-0085-754)</p>
+                    <p><strong>BANKING DETAILS (JSC CB "PRIVATBANK"):</strong><br>${bankAccountDetails}</p>
+                    ${correspondentBanksHtml}
                     
                     <table class="invoice-table">
                         <thead>
@@ -400,8 +424,8 @@
                                 <th>#</th>
                                 <th>Description of Services</th>
                                 <th>Qty</th>
-                                <th>Price (USD)</th>
-                                <th>Amount (USD)</th>
+                                <th>Price</th>
+                                <th>Amount</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -409,17 +433,16 @@
                                 <td>1</td>
                                 <td>${serviceNameEn}</td>
                                 <td>1 srvc</td>
-                                <td>\$${priceUsd}.00</td>
-                                <td><strong>\$${priceUsd}.00</strong></td>
+                                <td>${currencySign}${price}.00</td>
+                                <td><strong>${currencySign}${price}.00</strong></td>
                             </tr>
                         </tbody>
                     </table>
-                    <p style="text-align: right; font-size: 1.1em;"><strong>Total Amount Due: \$${priceUsd}.00 USD</strong></p>
+                    <p style="text-align: right; font-size: 1.1em;"><strong>Total Amount Due: ${currencySign}${price}.00 ${currency}</strong></p>
                     <div style="font-size:0.9em; color:#333; background:#f9f9f9; padding:12px; border-left:4px solid #3498db; margin: 15px 0;">
                         <strong>REMITTANCE INFORMATION (Payment Reference):</strong><br>
-                        <code style="display:block; margin-top:5px; background:#fff; padding:5px; border:1px solid #ddd;">Payment for computer programming services under Invoice № ${invoiceNum} dated ${dateStr}. No VAT.</code>
+                        <code style="display:block; margin-top:5px; background:#fff; padding:5px; border:1px solid #ddd;">Payment for IT services under Invoice № ${invoiceNum} dated ${dateStr}. No VAT.</code>
                     </div>
-                    <p style="margin-top:4px; font-size:0.85em; color:#666;">This invoice is generated automatically and serves as a valid payment obligation under the Public Offer terms.</p>
                 `;
             }
 
