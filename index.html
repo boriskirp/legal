@@ -25,6 +25,7 @@
         .payment-box { margin-top: 40px; padding: 30px; border: 2px solid #3498db; border-radius: 12px; background: #f7faff; }
         .payment-box h3 { margin-top: 0; color: #2c3e50; }
         .select-style { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 1em; margin-bottom: 15px; background: white; font-family: inherit; }
+        
         .btn-pay { display: inline-block; background: #bdc3c7; color: white; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: bold; font-size: 1.1em; pointer-events: none; transition: 0.3s; text-align: center; width: 100%; box-sizing: border-box; cursor: pointer; border: none; }
 
         #invoice-modal { display: none; margin-top: 30px; padding: 30px; border: 1px dashed #333; background: #fff; border-radius: 4px; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
@@ -32,16 +33,15 @@
         .invoice-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
         .invoice-table th, .invoice-table td { border: 1px solid #333; padding: 8px; text-align: left; }
         .invoice-table th { background: #f2f2f2; }
-        .print-btn { background: #27ae60; color: white; padding: 10px 20px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 20px; }
+        .print-btn { background: #27ae60; color: white; padding: 10px 20px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 20px; width: 100%; font-size: 1.05em; }
 
         .lang-en, footer .lang-en { display: none; }
 
-        /* Правила друку: тепер друкується І Оферта, І Інвойс разом */
         @media print {
             .lang-switcher, .payment-box, .print-btn { display: none !important; }
             body { background: white; margin: 0; padding: 0; }
             .container { box-shadow: none; padding: 0; }
-            #invoice-modal { display: block !important; border: none; padding: 0; margin-top: 50px; page-break-before: always; } /* Інвойс завжди починається з нової сторінки */
+            #invoice-modal { display: block !important; border: none; padding: 0; margin-top: 50px; page-break-before: always; }
         }
     </style>
 </head>
@@ -110,7 +110,7 @@
                     </tr>
                     <tr>
                         <td><strong>Пакет «Сенсовий Консалтинг»</strong></td>
-                        <td>Індивідуальне проектування складних інформационных систем, виправлення сигналу даних, інтеграція ШІ-моделей під архітектуру замовника, супровід Enterprise-рівня.</td>
+                        <td>Індивідуальне проектування складних інформационных систем, виправлення сигналу даних, інтеграція ШІ-моделей под архітектуру замовника, супровід Enterprise-рівня.</td>
                         <td class="price-tag">Договірна / Negotiable</td>
                     </tr>
                 </tbody>
@@ -125,7 +125,7 @@
 
             <h2>4. ОБМЕЖЕННЯ ВІДПОВІДАЛЬНОСТІ ТА БЕЗПЕКА (ЗАПОБІЖНИКИ)</h2>
             <div class="warning-box">
-                <strong>Важливе юридичне застереження:</strong> Послуги стосуються налаштування логічних зв'язків та аналітики даних. Замовник несе повну одноосібну відповідальність за технічний стан свого обладнання та середовища розробки.
+                <strong>Важливе юридичне застереження:</strong> Послуги стосуються налаштування логічних зв'язків та аналітики даних. Замовник несе повну одноосійну відповідальність за технічний стан свого обладнання та середовища розробки.
             </div>
             <p>4.1. <strong>Відсутність гарантій на оточення (AS IS):</strong> Програмні модулі та консультаційні алгоритми надаються на умовах "як є". Виконавець не несе відповідальності за працездатність стороннього програмного забезпечення, операційних систем, серверів або комп'ютерів Замовника.</p>
             <p>4.2. <strong>Захист від шкідливого ПЗ та вірусів:</strong> Виконавець не здійснює аудит комп'ютерів Замовника на наявність вірусів, троянів чи криптомайнерів. Виконавець не несе відповідальності за будь-які збитки, зараження ПК Замовника вірусами, витік інформації або компрометацію ключів, що виникли внаслідок дій третіх осіб або через переходи Замовника за сторонніми посиланнями.</p>
@@ -257,12 +257,12 @@
             <div style="margin: 20px 0; display: flex; align-items: flex-start; gap: 10px;">
                 <input type="checkbox" id="agree-checkbox" onchange="togglePayButton()" style="margin-top: 4px; width: 18px; height: 18px; cursor: pointer;">
                 <label for="agree-checkbox" style="font-size: 0.95em; color: #222; cursor: pointer; user-select: none;">
-                    <span class="lang-uk"><strong>Я усвідомлюю свої дії!</strong> Я повністю прочитав(ла) умови Публічної оферти, включаючи правила обмеження відповідальності за стан ПК, погоджуюсь із ними та акцептую цей договір.</span>
-                    <span class="lang-en"><strong>I am aware of my actions!</strong> I have fully read the terms of the Public Offer, including PC environment liability exclusions, agree with them, and accept this agreement.</span>
+                    <span id="label-text-ua" class="lang-uk"><strong>Я усвідомлюю свої дії!</strong> Я повністю прочитав(ла) умови Публічної оферти, включаючи правила обмеження відповідальності за стан ПК, погоджуюсь із ними та акцептую цей договір.</span>
+                    <span id="label-text-en" class="lang-en"><strong>I am aware of my actions!</strong> I have fully read the terms of the Public Offer, including PC environment liability exclusions, agree with them, and accept this agreement.</span>
                 </label>
             </div>
 
-            <a id="pay-button" href="#" class="btn-pay" onclick="handlePaymentClick(event)">⚠️ Будь ласка, підтвердіть згоду / Please accept terms</a>
+            <button id="pay-button" class="btn-pay" onclick="handlePaymentClick(event)">⚠️ Будь ласка, підтвердіть згоду / Please accept terms</button>
         </div>
 
         <!-- ДИНАМІЧНИЙ БЛОК РАХУНКУ (ДОДАТОК №1) -->
@@ -288,14 +288,12 @@
             const buttons = document.querySelectorAll('.lang-btn');
 
             buttons.forEach(btn => btn.classList.remove('active'));
-            const uaElements = document.querySelectorAll('.lang-uk');
-            const enElements = document.querySelectorAll('.lang-en');
-
+            
             if (lang === 'uk') {
                 uaBlock.style.display = 'block';
                 enBlock.style.display = 'none';
-                uaElements.forEach(el => { if(el.id !== 'content-uk') el.style.display = 'inline'; });
-                enElements.forEach(el => el.style.display = 'none');
+                document.getElementById('label-text-ua').style.display = 'inline';
+                document.getElementById('label-text-en').style.display = 'none';
                 buttons[0].classList.add('active');
                 document.getElementById('pay-title').innerText = '🛒 Вибір пакету послуг та акцепт оферти';
                 document.getElementById('select-label').innerText = 'Оберіть валюту та необхідний пакет супроводу:';
@@ -303,8 +301,8 @@
             } else {
                 uaBlock.style.display = 'none';
                 enBlock.style.display = 'block';
-                uaElements.forEach(el => el.style.display = 'none');
-                enElements.forEach(el => { if(el.id !== 'content-en') el.style.display = 'inline'; });
+                document.getElementById('label-text-ua').style.display = 'none';
+                document.getElementById('label-text-en').style.display = 'inline';
                 buttons[1].classList.add('active');
                 document.getElementById('pay-title').innerText = '🛒 Service & Currency Selection';
                 document.getElementById('select-label').innerText = 'Select currency and required support package:';
@@ -315,7 +313,6 @@
         }
 
         function updatePaymentTarget() {
-            togglePayButton();
             document.getElementById('invoice-modal').style.display = 'none';
         }
 
