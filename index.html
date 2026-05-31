@@ -3,25 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Генератор Інвойсів / Invoice Generator</title>
+    <title>Публічна Оферта та Генератор Інвойсів</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
             background-color: #f4f4f9;
             color: #333;
+            line-height: 1.5;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background: #fff;
-            padding: 20px;
+            padding: 25px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        h2 {
+        h2, h3 {
             text-align: center;
             color: #2c3e50;
+        }
+        .form-section {
+            background: #fcfcfc;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            margin-bottom: 30px;
         }
         .form-group {
             margin-bottom: 15px;
@@ -31,7 +39,7 @@
             margin-bottom: 5px;
             font-weight: bold;
         }
-        input, select {
+        input, select, textarea {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
@@ -67,12 +75,13 @@
         }
         button {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             background-color: #3498db;
             color: white;
             border: none;
             border-radius: 4px;
             font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
             transition: background 0.3s;
         }
@@ -83,30 +92,53 @@
             background-color: #bdc3c7;
             cursor: not-allowed;
         }
-        #invoice-modal {
+        
+        /* Стилі для відображення Оферти та Інвойсу */
+        #document-preview {
             display: none;
             margin-top: 30px;
             background: white;
-            padding: 30px;
+            padding: 40px;
             border: 1px solid #ddd;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             border-radius: 4px;
         }
         .print-btn {
             background-color: #2ecc71;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         .print-btn:hover {
             background-color: #27ae60;
         }
+        
+        /* Двомовна сітка для тексту оферти */
+        .oferta-grid {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            text-align: justify;
+        }
+        .oferta-col {
+            flex: 1;
+        }
+        .oferta-col.en {
+            color: #555;
+            font-style: italic;
+        }
+        .divider {
+            border-top: 2px dashed #ccc;
+            margin: 40px 0;
+        }
+
         @media print {
             body * {
                 visibility: hidden;
             }
-            #invoice-content, #invoice-content * {
+            #printable-area, #printable-area * {
                 visibility: visible;
             }
-            #invoice-content {
+            #printable-area {
                 position: absolute;
                 left: 0;
                 top: 0;
@@ -124,72 +156,167 @@
 <body>
 
 <div class="container no-print">
-    <h2>Генератор Інвойсів / Invoice Generator</h2>
+    <h2>Генератор: Договір-Оферта + Інвойс</h2>
+    <p style="text-align:center; color:#666;">Заповніть дані нижче, щоб сформувати повний пакет документів.</p>
     
-    <div class="row">
-        <div class="form-group">
-            <label for="lang">Мова інвойсу / Invoice Language</label>
-            <select id="lang">
-                <option value="ua">Українська (Двомовний ЗЕД)</option>
-                <option value="en">English Only</option>
-            </select>
+    <div class="form-section">
+        <div class="row">
+            <div class="form-group">
+                <label for="lang">Мова Інвойсу (Додатку)</label>
+                <select id="lang">
+                    <option value="ua">Українська + Англійська (Двомовний)</option>
+                    <option value="en">Лише Англійська (English Only)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="invoiceNum">Номер Інвойсу / Рахунку</label>
+                <input type="text" id="invoiceNum" placeholder="напр., 2026-01" value="2026-01">
+            </div>
         </div>
-        <div class="form-group">
-            <label for="invoiceNum">Номер інвойсу / Invoice №</label>
-            <input type="text" id="invoiceNum" placeholder="напр., 2024-01">
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="form-group">
-            <label for="date">Дата / Date</label>
-            <input type="date" id="date">
+        <div class="row">
+            <div class="form-group">
+                <label for="date">Дата документу</label>
+                <input type="date" id="date">
+            </div>
+            <div class="form-group">
+                <label for="amount">Сума до сплати ($ USD)</label>
+                <input type="number" step="0.01" id="amount" placeholder="0.00" value="1000.00">
+            </div>
         </div>
-        <div class="form-group">
-            <label for="amount">Сума ($) / Amount ($)</label>
-            <input type="number" step="0.01" id="amount" placeholder="0.00">
-        </div>
-    </div>
 
-    <div class="form-group">
-        <label for="client">Клієнт (Назва та Адреса) / Client (Name & Address)</label>
-        <input type="text" id="client" placeholder="Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA">
+        <div class="form-group">
+            <label for="client">Дані Клієнта (Назва, Реквізити, Адреса)</label>
+            <textarea id="client" rows="2" placeholder="Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA"></textarea>
+        </div>
+
+        <h4 style="margin: 20px 0 10px 0; color:#2c3e50; border-bottom: 1px solid #eee; padding-bottom:5px;">Ваші постійні реквізити (Виконавець):</h4>
+        <div class="row">
+            <div class="form-group">
+                <label for="yourName">ФОП (Ім'я / Назва компанії)</label>
+                <input type="text" id="yourName" value="ФОП Іванов Іван / FOP Ivanov Ivan">
+            </div>
+            <div class="form-group">
+                <label for="yourTaxId">ІПН / Tax ID</label>
+                <input type="text" id="yourTaxId" value="1234567890">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="yourAddress">Ваша адреса (Юридична та для листування)</label>
+            <input type="text" id="yourAddress" value="вул. Хрещатик, буд. 1, м. Київ, Україна, 01001">
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="bankName">Назва Банку та Swift</label>
+                <input type="text" id="bankName" value="АТ КБ 'ПРИВАТБАНК' / JSC CB 'PRIVATBANK', SWIFT: PBANUA2X">
+            </div>
+            <div class="form-group">
+                <label for="bankIban">Рахунок IBAN</label>
+                <input type="text" id="bankIban" value="UA123456789012345678901234567">
+            </div>
+        </div>
     </div>
 
     <div class="checkbox-group">
         <input type="checkbox" id="acceptTerms" onchange="toggleButton()">
         <label for="acceptTerms">
-            Я підтверджую, що послуги надавались дистанційно, електронною поштою, не містять матеріальної складової і не потребують підписання акту приймання-передачі.
+            Я підтверджую правильність внесених реквізитів та умов надання дистанційних IT-послуг.
         </label>
     </div>
 
-    <button id="generateBtn" disabled onclick="generateInvoice()">Згенерувати інвойс / Generate Invoice</button>
+    <button id="generateBtn" disabled onclick="generateDocument()">Згенерувати повний пакет документів</button>
 </div>
 
-<!-- Блок для відображення згенерованого інвойсу -->
-<div class="invoice-modal" id="invoice-modal">
-    <button class="print-btn no-print" onclick="window.print()">Друк / Зберегти в PDF</button>
-    <div id="invoice-content"></div>
+<!-- БЛОК ПОПЕРЕДНЬОГО ПЕРЕГЛЯДУ ТА ДРУКУ -->
+<div id="document-preview">
+    <button class="print-btn no-print" onclick="window.print()">Друк / Зберегти в PDF (Оферта + Інвойс)</button>
+    
+    <div id="printable-area">
+        <!-- ТЕКСТ ПУБЛІЧНОЇ ОФЕРТИ -->
+        <div id="oferta-text">
+            <div style="text-align: center; margin-bottom: 25px;">
+                <h2 style="margin: 0; font-size: 20px;">ПУБЛІЧНА ОФЕРТА / PUBLIC OFFER</h2>
+                <p style="margin: 5px 0; font-size: 14px;">Про надання послуг з розробки програмного забезпечення та IT-консалтингу</p>
+                <p style="margin: 0; font-size: 13px; color: #555;">Software Development and IT Consulting Services Agreement</p>
+            </div>
+
+            <div class="oferta-grid">
+                <div class="oferta-col">
+                    <strong>1. ЗАГАЛЬНІ ПОЛОЖЕННЯ</strong><br>
+                    Цей документ є офіційною публічною пропозицією (офертою) Виконавця, адресованою будь-якій юридичній або фізичній особі (Замовнику), укласти Договір про надання послуг на умовах, що викладені нижче.
+                </div>
+                <div class="oferta-col en">
+                    <strong>1. GENERAL PROVISIONS</strong><br>
+                    This document constitutes an official public offer by the Contractor, addressed to any legal entity or individual (Customer), to conclude a Services Agreement on the terms and conditions specified below.
+                </div>
+            </div>
+
+            <div class="oferta-grid">
+                <div class="oferta-col">
+                    <strong>2. ПРЕДМЕТ ДОГОВОРУ</strong><br>
+                    Виконавець зобов'язується надати Замовнику IT-послуги (консультаційні послуги, розробка або тестування ПЗ), деталізовані у Додатку №1 (Інвойсі), а Замовник зобов'язується прийняти та оплатити їх. Послуги надаються дистанційно за допомогою електронних засобів зв'язку.
+                </div>
+                <div class="oferta-col en">
+                    <strong>2. SUBJECT OF THE AGREEMENT</strong><br>
+                    The Contractor shall provide the Customer with IT services (consulting, software development, or testing) detailed in Appendix No.1 (Invoice), and the Customer shall accept and pay for them. Services are provided remotely via electronic communication channels.
+                </div>
+            </div>
+
+            <div class="oferta-grid">
+                <div class="oferta-col">
+                    <strong>3. АКЦЕПТ ОФЕРТИ ТА ПОРЯДОК ПРИЙМАННЯ ПОСЛУГ</strong><br>
+                    Оплата Замовником Інвойсу (Додатка №1) є повним і безумовним акцептом цієї Оферти. Послуги вважаються наданими в повному обсязі, належної якості, та прийнятими Замовником без зауважень у момент здійснення оплати. Підписання додаткових двосторонніх актів приймання-передачі послуг не вимагається.
+                </div>
+                <div class="oferta-col en">
+                    <strong>3. ACCEPTANCE OF OFFER AND SERVICES DELIVERABLE</strong><br>
+                    Payment of the Invoice (Appendix No.1) by the Customer constitutes full and unconditional acceptance of this Public Offer. The services are deemed provided in full scope, of proper quality, and accepted by the Customer without reservations at the moment of payment. Signing of bilateral acceptance acts is not required.
+                </div>
+            </div>
+
+            <div class="oferta-grid">
+                <div class="oferta-col">
+                    <strong>4. ЦІНА ТА ПОРЯДОК РОЗРАХУНКІВ</strong><br>
+                    Загальна вартість послуг за цим Договором визначається сумою, зазначеною у відповідному Інвойсі (Додатку №1). Розрахунки здійснюються у безготівковій формі шляхом перерахування коштів на банківський рахунок Виконавця.
+                </div>
+                <div class="oferta-col en">
+                    <strong>4. PRICE AND PAYMENT TERMS</strong><br>
+                    The total value of services under this Agreement is determined by the amount specified in the respective Invoice (Appendix No.1). Payments shall be made via wire transfer to the Contractor's bank account.
+                </div>
+            </div>
+        </div>
+
+        <!-- ЛІНІЯ РОЗРИВУ ДОКУМЕНТІВ -->
+        <div class="divider no-print"></div>
+        <div style="page-break-before: always;"></div> <!-- Примусове перенесення інвойсу на нову сторінку при друці -->
+
+        <!-- СЮДИ ДИНАМІЧНО ВСТАВЛЯЄТЬСЯ ІНВОЙС З РЕКВІЗИТАМИ -->
+        <div id="invoice-appendix-content"></div>
+    </div>
 </div>
 
 <script>
-    // Встановлюємо сьогоднішню дату за замовчуванням
+    // Встановлюємо поточну дату
     document.getElementById('date').value = new Date().toISOString().split('T')[0];
 
-    // Активація кнопки після згоди з умовою публічної оферти
     function toggleButton() {
         const checkbox = document.getElementById('acceptTerms');
         const btn = document.getElementById('generateBtn');
         btn.disabled = !checkbox.checked;
     }
 
-    // Основна функція генерації контенту рахунку
-    function generateInvoice() {
+    function generateDocument() {
+        // Отримуємо значення з усіх полів форми
         const lang = document.getElementById('lang').value;
         const invoiceNum = document.getElementById('invoiceNum').value || '_______';
         const dateInput = document.getElementById('date').value;
         const amount = parseFloat(document.getElementById('amount').value || 0).toFixed(2);
         const client = document.getElementById('client').value || '__________________________________________________';
+        
+        const yourName = document.getElementById('yourName').value;
+        const yourTaxId = document.getElementById('yourTaxId').value;
+        const yourAddress = document.getElementById('yourAddress').value;
+        const bankName = document.getElementById('bankName').value;
+        const bankIban = document.getElementById('bankIban').value;
 
         // Форматування дати
         let dateStr = '_______';
@@ -204,28 +331,32 @@
         let html = '';
 
         if (lang === 'ua') {
-            // Двомовний інвойс (Українська / Англійська)
+            // Двомовний інвойс як Додаток до Оферти
             html = `
+                <div style="text-align:right; font-size:0.9em; margin-bottom:15px; color:#555;">
+                    <strong>Додаток №1 до Договору Публічної Оферти</strong><br>
+                    <span style="font-style:italic;">Appendix No.1 to the Public Offer Agreement</span>
+                </div>
+
                 <div style="display:flex; justify-content:space-between; border-bottom:2px solid #333; padding-bottom:10px; margin-bottom:20px;">
                     <div>
-                        <h1 style="margin:0; font-size:24px;">ІНВОЙС / INVOICE № ${invoiceNum}</h1>
+                        <h1 style="margin:0; font-size:22px;">ІНВОЙС / INVOICE № ${invoiceNum}</h1>
                         <p style="margin:5px 0 0 0;">Дата / Date: <strong>${dateStr}</strong></p>
                     </div>
                     <div style="text-align:right; font-size:0.9em;">
-                        <strong>Виконавець / Developer:</strong><br>
-                        ФОП [Ваше Ім'я / Your Name]<br>
-                        Адреса / Address: [Ваша адреса / Your Address]<br>
-                        ІПН / Tax ID: [Ваш ІПН / Your Tax ID]<br>
-                        Email: [Ваш Email]
+                        <strong>Виконавець / Contractor:</strong><br>
+                        ${yourName}<br>
+                        Адреса / Address: ${yourAddress}<br>
+                        ІПН / Tax ID: ${yourTaxId}
                     </div>
                 </div>
 
                 <div style="margin-bottom:20px; background:#f9f9f9; padding:15px; border-radius:4px;">
                     <strong>Замовник / Customer:</strong><br>
-                    ${client}
+                    ${client.replace(/\n/g, '<br>')}
                 </div>
 
-                <table style="width:100%; border-collapse:collapse; margin-bottom:30px;">
+                <table style="width:100%; border-collapse:collapse; margin-bottom:25px;">
                     <thead>
                         <tr style="background:#2c3e50; color:white;">
                             <th style="padding:10px; border:1px solid #ddd; text-align:left;">Опис послуг / Description of Services</th>
@@ -236,7 +367,7 @@
                         <tr>
                             <td style="padding:10px; border:1px solid #ddd;">
                                 Послуги з розробки програмного забезпечення та консультування в сфері IT за період згідно з домовленістю.<br>
-                                <span style="color:#666; font-style:italic;">Software development and IT consulting services for the period according to agreement.</span>
+                                <span style="color:#666; font-style:italic;">Software development and IT consulting services according to agreement.</span>
                             </td>
                             <td style="padding:10px; border:1px solid #ddd; text-align:right; font-weight:bold; font-size:1.1em;">$ ${amount}</td>
                         </tr>
@@ -247,49 +378,45 @@
                     </tbody>
                 </table>
 
-                <div style="margin-bottom:30px; font-size:0.95em; line-height:1.5;">
-                    <h3 style="margin-top:0; border-bottom:1px solid #ddd; padding-bottom:5px;">Банківські реквізити / Bank Details:</h3>
-                    <strong>Bank Name:</strong> [Назва банку, напр., КІТ Банк / JSC CB PRIVATBANK]<br>
-                    <strong>Bank Address:</strong> [Адреса банку / Bank Address]<br>
-                    <strong>SWIFT/BIC:</strong> [Ваш SWIFT код]<br>
-                    <strong>Account (IBAN):</strong> [Ваш IBAN рахунок]<br>
-                    <strong>Beneficiary:</strong> FOP [Ваше Ім'я латиницею / Your Name]<br>
-                    <strong>Beneficiary Address:</strong> [Ваша адреса латиницею / Your Address]
+                <div style="margin-bottom:25px; font-size:0.95em; line-height:1.5; background:#fff; border:1px solid #ddd; padding:15px; border-radius:4px;">
+                    <h3 style="margin-top:0; border-bottom:1px solid #eee; padding-bottom:5px; text-align:left;">Банківські реквізити / Bank Details:</h3>
+                    <strong>Bank Name & SWIFT:</strong> ${bankName}<br>
+                    <strong>Account (IBAN):</strong> <span style="font-family:monospace; font-size:1.1em; font-weight:bold;">${bankIban}</span><br>
+                    <strong>Beneficiary:</strong> ${yourName}<br>
+                    <strong>Beneficiary Address:</strong> ${yourAddress}
                 </div>
 
-                <div style="font-size:0.85em; color:#555; border-top:1px dashed #ccc; padding-top:15px; line-height:1.4;">
-                    <p><strong>Публічна оферта (Застереження):</strong> Оплата цього інвойсу за реквізитами є свідченням надання послуг в повному обсязі, належної якості, відповідно до усної чи письмової домовленості сторін, та є підтвердженням виконання робіт без необхідності підписання двосторонніх актів приймання-передачі.</p>
-                    <p style="font-style:italic;"><strong>Public Offer (Disclaimer):</strong> Payment of this invoice according to bank details constitutes confirmation of services provided in full scope, proper quality, under verbal or written agreement of the parties, and serves as acceptance of work done without necessity of signing bilateral acceptance acts.</p>
-                </div>
-
-                <div style="font-size:0.9em; color:#333; background:#f9f9f9; padding:12px; border-left:4px solid #3498db; margin: 15px 0;">
+                <div style="font-size:0.9em; color:#333; background:#eef2f7; padding:12px; border-left:4px solid #3498db; margin: 15px 0;">
                     <strong>ПРИЗНАЧЕННЯ ПЛАТЕЖУ (Payment Reference):</strong><br>
-                    <code style="display:block; margin-top:5px; background:#fff; padding:5px; border:1px solid #ddd;">Payment for IT services under Invoice № ${invoiceNum} dated ${dateStr}. No VAT.</code>
+                    <code style="display:block; margin-top:5px; background:#fff; padding:5px; border:1px solid #ddd; font-size:1.05em;">Payment for IT services under Invoice № ${invoiceNum} dated ${dateStr} according to Public Offer. No VAT.</code>
                 </div>
             `;
         } else {
-            // Лише англійська версія (English Only)
+            // Тільки англійський інвойс як Додаток до Оферти
             html = `
+                <div style="text-align:right; font-size:0.9em; margin-bottom:15px; color:#555;">
+                    <strong>Appendix No.1 to the Public Offer Agreement</strong>
+                </div>
+
                 <div style="display:flex; justify-content:space-between; border-bottom:2px solid #333; padding-bottom:10px; margin-bottom:20px;">
                     <div>
-                        <h1 style="margin:0; font-size:24px;">INVOICE № ${invoiceNum}</h1>
+                        <h1 style="margin:0; font-size:22px;">INVOICE № ${invoiceNum}</h1>
                         <p style="margin:5px 0 0 0;">Date: <strong>${dateStr}</strong></p>
                     </div>
                     <div style="text-align:right; font-size:0.9em;">
                         <strong>Contractor:</strong><br>
-                        IE [Your Name]<br>
-                        Address: [Your Address]<br>
-                        Tax ID: [Your Tax ID]<br>
-                        Email: [Your Email]
+                        ${yourName}<br>
+                        Address: ${yourAddress}<br>
+                        Tax ID: ${yourTaxId}
                     </div>
                 </div>
 
                 <div style="margin-bottom:20px; background:#f9f9f9; padding:15px; border-radius:4px;">
                     <strong>Customer:</strong><br>
-                    ${client}
+                    ${client.replace(/\n/g, '<br>')}
                 </div>
 
-                <table style="width:100%; border-collapse:collapse; margin-bottom:30px;">
+                <table style="width:100%; border-collapse:collapse; margin-bottom:25px;">
                     <thead>
                         <tr style="background:#2c3e50; color:white;">
                             <th style="padding:10px; border:1px solid #ddd; text-align:left;">Description of Services</th>
@@ -299,7 +426,7 @@
                     <tbody>
                         <tr>
                             <td style="padding:10px; border:1px solid #ddd;">
-                                Software development and IT consulting services for the period according to agreement. Provided remotely via electronic channels.
+                                Software development and IT consulting services according to agreement. Provided remotely via electronic channels.
                             </td>
                             <td style="padding:10px; border:1px solid #ddd; text-align:right; font-weight:bold; font-size:1.1em;">$ ${amount}</td>
                         </tr>
@@ -310,34 +437,29 @@
                     </tbody>
                 </table>
 
-                <div style="margin-bottom:30px; font-size:0.95em; line-height:1.5;">
-                    <h3 style="margin-top:0; border-bottom:1px solid #ddd; padding-bottom:5px;">Bank Details:</h3>
-                    <strong>Bank Name:</strong> [Bank Name, e.g., JSC CB PRIVATBANK]<br>
-                    <strong>Bank Address:</strong> [Bank Address]<br>
-                    <strong>SWIFT/BIC:</strong> [Your SWIFT]<br>
-                    <strong>Account (IBAN):</strong> [Your IBAN]<br>
-                    <strong>Beneficiary:</strong> IE [Your Name]<br>
-                    <strong>Beneficiary Address:</strong> [Your Address]
+                <div style="margin-bottom:25px; font-size:0.95em; line-height:1.5; background:#fff; border:1px solid #ddd; padding:15px; border-radius:4px;">
+                    <h3 style="margin-top:0; border-bottom:1px solid #eee; padding-bottom:5px; text-align:left;">Bank Details:</h3>
+                    <strong>Bank Name & SWIFT:</strong> ${bankName}<br>
+                    <strong>Account (IBAN):</strong> <span style="font-family:monospace; font-size:1.1em; font-weight:bold;">${bankIban}</span><br>
+                    <strong>Beneficiary:</strong> ${yourName}<br>
+                    <strong>Beneficiary Address:</strong> ${yourAddress}
                 </div>
 
-                <div style="font-size:0.85em; color:#555; border-top:1px dashed #ccc; padding-top:15px; line-height:1.4;">
-                    <p style="font-style:italic;"><strong>Public Offer (Disclaimer):</strong> Payment of this invoice according to bank details constitutes confirmation of services provided in full scope, proper quality, under verbal or written agreement of the parties, and serves as acceptance of work done without necessity of signing bilateral acceptance acts.</p>
-                </div>
-
-                <div style="font-size:0.9em; color:#333; background:#f9f9f9; padding:12px; border-left:4px solid #3498db; margin: 15px 0;">
+                <div style="font-size:0.9em; color:#333; background:#eef2f7; padding:12px; border-left:4px solid #3498db; margin: 15px 0;">
                     <strong>REMITTANCE INFORMATION (Payment Reference):</strong><br>
-                    <code style="display:block; margin-top:5px; background:#fff; padding:5px; border:1px solid #ddd;">Payment for IT services under Invoice № ${invoiceNum} dated ${dateStr}. No VAT.</code>
+                    <code style="display:block; margin-top:5px; background:#fff; padding:5px; border:1px solid #ddd; font-size:1.05em;">Payment for IT services under Invoice № ${invoiceNum} dated ${dateStr} according to Public Offer. No VAT.</code>
                 </div>
             `;
         }
 
-        // Вставляємо відрендерений HTML у контейнер для перегляду рахунку
-        document.getElementById('invoice-content').innerHTML = html;
-        // Відображаємо сам модальний блок рахунку
-        document.getElementById('invoice-modal').style.display = 'block';
+        // Вставляємо інвойс під текст Оферти
+        document.getElementById('invoice-appendix-content').innerHTML = html;
         
-        // Робимо плавну прокрутку вниз екрана, щоб користувач побачив згенерований рахунок
-        document.getElementById('invoice-modal').scrollIntoView({ behavior: 'smooth' });
+        // Показуємо фінальний документ
+        document.getElementById('document-preview').style.display = 'block';
+        
+        // Скролимо сторінку до перегляду результату
+        document.getElementById('document-preview').scrollIntoView({ behavior: 'smooth' });
     }
 </script>
 
