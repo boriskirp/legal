@@ -14,6 +14,7 @@
         .pricing-table th, .pricing-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
         .pricing-table th { background-color: #f2f2f2; color: #2c3e50; }
         .price-tag { font-weight: bold; color: #27ae60; white-space: nowrap; display: block; margin-bottom: 2px; }
+        .warning-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 4px; font-size: 0.95em; color: #856404; }
         footer { margin-top: 50px; font-size: 0.9em; color: #7f8c8d; text-align: center; line-height: 1.8; }
         
         .lang-switcher { position: absolute; top: 20px; right: 20px; display: flex; gap: 5px; }
@@ -119,17 +120,26 @@
             <p>2.2. Виконавець зобов’язується надати Замовнику доступ до репозиторіїв або розпочати аналіз проекту <strong>протягом 24 годин</strong> з моменту зарахування коштів.</p>
 
             <h2>3. ПОРЯДОК АКЦЕПТУ ТА ОПЛАТИ</h2>
-            <p>3.1. Генерація рахунку-фактури та його оплата через клієнт-банк за вказаними реквізитами (IBAN) є повним і безумовним прийняттям (акцептом) цієї Оферти.</p>
+            <p>3.1. Генерація рахунку-фактури та його оплата через клієнт-банк за вказаними реквізитами (IBAN) є повним і безумовним прийняттям (акцептом) цієї Оферти[cite: 1].</p>
 
-            <h2>4. ПРАВИЛА ТА УМОВИ ПОВЕРНЕННЯ КОШТІВ</h2>
-            <p>4.1. Замовник має право повернути кошти <strong>до моменту фактичного початку виконання робіт</strong>.</p>
+            <h2>4. ОБМЕЖЕННЯ ВІДПОВІДАЛЬНОСТІ ТА БЕЗПЕКА (ЗАПОБІЖНИКИ)</h2>
+            <div class="warning-box">
+                <strong>Важливе юридичне застереження:</strong> Послуги стосуються налаштування логічних зв'язків та аналітики даних. Замовник несе повну одноосібну відповідальність за технічний стан свого обладнання та середовища розробки.
+            </div>
+            <p>4.1. <strong>Відсутність гарантій на оточення (AS IS):</strong> Програмні модулі та консультаційні алгоритми надаються на умовах "як є". Виконавець не несе відповідальності за працездатність стороннього програмного забезпечення, операційних систем, серверів або комп'ютерів Замовника.</p>
+            <p>4.2. <strong>Захист від шкідливого ПЗ та вірусів:</strong> Виконавець не здійснює аудит комп'ютерів Замовника на наявність вірусів, троянів чи криптомайнерів. Виконавець не несе відповідальності за будь-які збитки, зараження ПК Замовника вірусами, витік інформації або компрометацію ключів, що виникли внаслідок дій третіх осіб або через переходи Замовника за сторонніми посиланнями.</p>
+            <p>4.3. <strong>Неправильне використання (Помилки користувача):</strong> Виконавець не несе відповідальності за збої, втрату даних, пошкодження інформаційної архітектури або фінансові збитки Замовника, викликані неправильним копіюванням коду, помилками у конфігураційних файлах, випадковим видаленням баз даних або некваліфікованими діями персоналу Замовника.</p>
+            <p>4.4. Замовник зобов'язаний самостійно забезпечувати антивірусний захист свого ПК та створювати резервні копії (backups) проекту до початку надання інтелектуального супроводу.</p>
 
-            <h2>5. РЕКВІЗИТИ ВИКОНАВЦЯ</h2>
+            <h2>5. ПРАВИЛА ТА УМОВИ ПОВЕРНЕННЯ КОШТІВ</h2>
+            <p>5.1. Замовник має право повернути кошти <strong>до моменту фактичного початку виконання робіт</strong> (до початку інженерного аналізу архітектури чи надання доступу до приватного коду).</p>
+
+            <h2>6. РЕКВІЗИТИ ВИКОНАВЦЯ</h2>
             <p>ФОП Пупченко Борис Петрович<br>
             РНОКПП (ІПН): 2247107119<br>
             Юридична адреса: 53300, Україна, Дніпропетровська обл., м. Покров, вул. Медична, б. 10, кв. 12<br>
             <strong>Гривневий рахунок (UAH IBAN):</strong> UA033052990000026006050668381 в АТ КБ «ПриватБанк»<br>
-            <strong>Доларовий рахунок (USD IBAN):</strong> UA203052990000026000050665078 в АТ КБ «ПриватБанк» (SWIFT: PBANUA2X)<br>
+            <strong>Доларовий рахунок (USD IBAN):</strong> UA203052990000026000050665078 в АТ КБ «ПриватБанк» (SWIFT: PBANUA2X)[cite: 1]<br>
             Контактний телефон: +38(093)-206-0081<br>
             Офіційний email: mr.karalyp@gmail.com</p>
         </div>
@@ -200,18 +210,27 @@
             <p>2.2. The Provider guarantees setup initialization **within 24 hours** from payment receipt.</p>
 
             <h2>3. ACCEPTANCE AND PAYMENT PROCEDURE</h2>
-            <p>3.1. Generating an invoice and completing a direct wire transfer (SWIFT/IBAN) constitutes full acceptance of this Public Offer.</p>
+            <p>3.1. Generating an invoice and completing a direct wire transfer (SWIFT/IBAN) constitutes full acceptance of this Public Offer[cite: 1].</p>
 
-            <h2>4. REFUND AND CANCELLATION POLICY</h2>
-            <p>4.1. The Customer may request a transaction reversal **only before actual work performance has commenced**.</p>
+            <h2>4. LIMITATION OF LIABILITY AND SECURITY</h2>
+            <div class="warning-box" style="color: #856404; background-color: #fff3cd; border-color: #ffc107;">
+                <strong>Legal Disclaimer:</strong> The Customer is solely responsible for the technical environment, operating systems, and computer security frameworks used during the integration.
+            </div>
+            <p>4.1. <strong>"AS IS" Deployment:</strong> Code structure consulting and configurations are provided "as is". The Provider is not responsible for the operability of third-party frameworks, servers, or client OS environments.</p>
+            <p>4.2. <strong>Protection against Malware and PC Viruses:</strong> The Provider does not scan or monitor the Customer's hardware for virus entities, malware, or backdoors. The Provider shall not be held liable for any data contamination, computer infections, system breaches, or cryptographic key exposures occurring on the Customer’s side.</p>
+            <p>4.3. <strong>Improper Use & User Errors:</strong> The Provider is not responsible for data destruction, logical configuration corruption, or monetary damages arising from customer syntax errors, unvalidated branch merges, structural omissions, or incompetent use of terminal inputs by the Customer's team.</p>
+            <p>4.4. The Customer is independently required to support firewall capabilities, active anti-virus engines, and execute stable snapshot routines (backups) prior to deployment interaction.</p>
 
-            <h2>5. PROVIDER'S LEGAL DETAILS</h2>
+            <h2>5. REFUND AND CANCELLATION POLICY</h2>
+            <p>5.1. The Customer may request a transaction reversal **only before actual architecture evaluation or code provisioning has commenced**.</p>
+
+            <h2>6. PROVIDER'S LEGAL DETAILS</h2>
             <p>Sole Proprietor (FOP) Boris Petrovych Pupchenko<br>
             Tax ID (RNOKPP): 2247107119<br>
             Registered Address: 10 Medychna str., apt. 12, Pokrov, Dnipropetrovsk reg., 53300, Ukraine<br>
             <strong>UAH Account:</strong> IBAN UA033052990000026006050668381 at JSC CB "PRIVATBANK"<br>
-            <strong>USD Account:</strong> IBAN UA203052990000026000050665078 at JSC CB "PRIVATBANK"<br>
-            Bank SWIFT Code: PBANUA2X<br>
+            <strong>USD Account:</strong> IBAN UA203052990000026000050665078 at JSC CB "PRIVATBANK"[cite: 1]<br>
+            Bank SWIFT Code: PBANUA2X[cite: 1]<br>
             Official Email: mr.karalyp@gmail.com</p>
         </div>
 
@@ -237,8 +256,8 @@
             <div style="margin: 20px 0; display: flex; align-items: flex-start; gap: 10px;">
                 <input type="checkbox" id="agree-checkbox" onchange="togglePayButton()" style="margin-top: 4px; width: 18px; height: 18px; cursor: pointer;">
                 <label for="agree-checkbox" style="font-size: 0.95em; color: #222; cursor: pointer; user-select: none;">
-                    <span class="lang-uk"><strong>Я усвідомлюю свої дії!</strong> Я повністю прочитав(ла) умови Публічної оферти, погоджуюсь із ними та акцептую цей договір.</span>
-                    <span class="lang-en"><strong>I am aware of my actions!</strong> I have fully read the terms of the Public Offer, agree with them, and accept this agreement.</span>
+                    <span class="lang-uk"><strong>Я усвідомлюю свої дії!</strong> Я повністю прочитав(ла) умови Публічної оферти, включаючи правила обмеження відповідальності за стан ПК, погоджуюсь із ними та акцептую цей договір.</span>
+                    <span class="lang-en"><strong>I am aware of my actions!</strong> I have fully read the terms of the Public Offer, including PC environment liability exclusions, agree with them, and accept this agreement.</span>
                 </label>
             </div>
 
@@ -353,7 +372,7 @@
             } else if (currency === 'USD') {
                 bankAccountDetails = `<strong>Bank SWIFT Code:</strong> <code style="font-size:1.1em; background:#eee; padding:2px 5px;">PBANUA2X</code><br>
                 <strong>IBAN Code (USD):</strong> <code style="font-size:1.1em; background:#eee; padding:2px 5px;">UA203052990000026000050665078</code><br>
-                <strong>Currency:</strong> USD`;
+                <strong>Currency:</strong> USD`;[cite: 1]
                 currencySign = '$';
                 
                 correspondentBanksHtml = `
@@ -363,7 +382,7 @@
                         <li><strong>The Bank of New York Mellon, New York, USA</strong><br>SWIFT Code: IRVT US 3N | Account: 890-0085-754</li>
                         <li><strong>Citibank N.A., New York, USA</strong><br>SWIFT Code: CITI US 33 | Account: 36445343</li>
                     </ul>
-                `;
+                `;[cite: 1]
             }
 
             if (currentLang === 'uk') {
