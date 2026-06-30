@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Публічна Оферта / Public Offer | ФОП Пупченко Б.П.</title>
     <style>
-        /* Стилі для відображення на екрані */
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 0 20px; background: #f9f9f9; }
         .container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: relative; }
         h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.8em; margin-top: 20px; }
@@ -16,6 +15,7 @@
         .pricing-table th { background-color: #f2f2f2; color: #2c3e50; }
         .price-tag { font-weight: bold; color: #27ae60; white-space: nowrap; display: block; margin-bottom: 2px; }
         .warning-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 4px; font-size: 0.95em; color: #856404; }
+        .instruction-box { background: #e8f4fd; border-left: 4px solid #2980b9; padding: 15px; margin: 20px 0; border-radius: 4px; font-size: 0.95em; color: #2c3e50; }
         footer { margin-top: 50px; font-size: 0.9em; color: #7f8c8d; text-align: center; line-height: 1.8; }
         
         .lang-switcher { position: absolute; top: 20px; right: 20px; display: flex; gap: 5px; }
@@ -39,31 +39,11 @@
         .lang-en { display: none; }
         .lang-uk { display: block; }
 
-        /* ЖОРСТКІ ПРАВИЛА ДРУКУ: ДРУКУЄТЬСЯ ТІЛЬКИ ІНВОЙС НА ОКРЕМІЙ СТОРІНЦІ */
         @media print {
-            /* Ховаємо абсолютно все, крім модального вікна інвойсу */
             body, html { background: white; margin: 0; padding: 0; width: 100%; }
             .container { box-shadow: none; padding: 0; margin: 0; max-width: 100%; }
-            
-            .lang-switcher, 
-            .lang-uk, 
-            .lang-en, 
-            .payment-box, 
-            .print-btn, 
-            footer { 
-                display: none !important; 
-            }
-            
-            /* Робимо інвойс видимим, прибираємо рамки та центруємо на весь екран */
-            #invoice-modal { 
-                display: block !important; 
-                border: none !important; 
-                padding: 0 !important; 
-                margin: 0 !important;
-                box-shadow: none !important;
-                page-break-before: avoid;
-                page-break-after: avoid;
-            }
+            .lang-switcher, .lang-uk, .lang-en, .payment-box, .print-btn, footer { display: none !important; }
+            #invoice-modal { display: block !important; border: none !important; padding: 0 !important; margin: 0 !important; box-shadow: none !important; page-break-before: avoid; page-break-after: avoid; }
         }
     </style>
 </head>
@@ -93,7 +73,7 @@
 
             <h2>1. ПРЕДМЕТ ДОГОВОРУ ТА КАТАЛОГ ПОСЛУГ</h2>
             <p>1.1. Виконавець через інтернет-майданчик надає Замовнику послуги з інтелектуального супроводу, семантичної інженерії, алгоритмізації зв'язків моделей штучного інтелекту, адаптації та технічної підтримки програмних модулів (надалі — Послуги).</p>
-            <p>1.2. Базовий код модулів є відкритим (Open Source). Предметом оплати є інтелектуальний супровід, індивідуальна настройка логіки, побудова семантичних зв'язків та валідація інтеграції проекту згідно з обраним пакетом послуг.</p>
+            <p>1.2. Базовий код модулів є відкритим (Open Source). Предметом оплати є інтелектуальний супровід, індивідуальне налаштування логіки, побудова семантичних зв'язків та валідація інтеграції проекту згідно з обраним пакетом послуг.</p>
             
             <h3>Вартість послуг (Тарифи в UAH / USD)</h3>
             
@@ -124,7 +104,7 @@
                     </tr>
                     <tr>
                         <td><strong>Пакет «Профі R&D» (Enterprise)</strong></td>
-                        <td>Глибока архітектурна адаптація, оптимізація продуктивності семантичного ядра, розширений супровід проекту та до 5 інженерних консультацій.</td>
+                        <td>Глибока архітектурна адаптація, оптимізація продуктивності семантичного ядра, розширений супровід проекту та до 3 інженерних консультацій.</td>
                         <td>
                             <span class="price-tag">20 000 UAH</span>
                             <span class="price-tag" style="color:#7f8c8d; font-size:0.9em;">$500 USD</span>
@@ -132,7 +112,7 @@
                     </tr>
                     <tr>
                         <td><strong>Пакет «Сенсовий Консалтинг»</strong></td>
-                        <td>Індивідуальне проектування складних інформационных систем, виправлення сигналу даних, інтеграція ШІ-моделей под архітектуру замовника, супровід Enterprise-рівня.</td>
+                        <td>Індивідуальне проектування складних інформаційних систем, виправлення сигналу даних, інтеграція ШІ-моделей під архітектуру замовника, супровід Enterprise-рівня.</td>
                         <td class="price-tag">Договірна / Negotiable</td>
                     </tr>
                 </tbody>
@@ -140,19 +120,21 @@
 
             <h2>2. УМОВИ НАДАННЯ ТА ДОСТАВКИ ПОСЛУГ</h2>
             <p>2.1. Надання послуг здійснюється виключно в електронній формі через мережу Інтернет.</p>
-            <p>2.2. Виконавець зобов’язується надати Замовнику доступ до репозиторіїв або розпочати аналіз проекту <strong>протягом 24 годин</strong> з моменту зарахування коштів.</p>
+            <p>2.2. Виконавець зобов’язується розпочати аналіз проекту або надати доступ до репозиторіїв <strong>протягом 24 годин</strong> з моменту одночасного виконання двох умов: зарахування коштів на рахунок Виконавця та отримання від Замовника повних вихідних даних (тексту, ТЗ чи контексту) на email <a href="mailto:mr.karalyp@gmail.com">mr.karalyp@gmail.com</a>.</p>
+            <p>2.3. Послуга вважається наданою належним чином у момент надсилання Виконавцем результату аналізу або конфігураційного коду на email Замовника. Якщо протягом 3 (трьох) календарних днів з моменту відправки результату Замовник не надав письмових мотивованих зауважень, Послуга вважається прийнятою в повному обсязі без підписання додаткових двосторонніх Актів.</p>
 
             <h2>3. ПОРЯДОК АКЦЕПТУ ТА ОПЛАТИ</h2>
             <p>3.1. Генерація рахунку-фактури та його оплата через клієнт-банк за вказаними реквізитами (IBAN) є повним і безумовним прийняттям (акцептом) цієї Оферти.</p>
 
-            <h2>4. ОБМЕЖЕННЯ ВІДПОВІДАЛЬНОСТЯ ТА БЕЗПЕКА (ЗАПОБІЖНИКИ)</h2>
+            <h2>4. ОБМЕЖЕННЯ ВІДПОВІДАЛЬНОСТІ ТА БЕЗПЕКА (ЗАПОБІЖНИКИ)</h2>
             <div class="warning-box">
-                <strong>Важливе юридичне застереження:</strong> Послуги стосуються налаштування логічних зв'язків та аналітики даних. Замовник несе повну одноосійну відповідальність за технічний стан свого обладнання та середовища розробки.
+                <strong>Важливе юридичне застереження:</strong> Послуги стосуються налаштування логічних зв'язків та аналітики даних. Замовник несе повну одноосібну відповідальність за технічний стан свого обладнання та середовища розробки.
             </div>
             <p>4.1. <strong>Відсутність гарантій на оточення (AS IS):</strong> Програмні модулі та консультаційні алгоритми надаються на умовах "як є". Виконавець не несе відповідальності за працездатність стороннього програмного забезпечення, операційних систем, серверів або комп'ютерів Замовника.</p>
             <p>4.2. <strong>Захист від шкідливого ПЗ та вірусів:</strong> Виконавець не здійснює аудит комп'ютерів Замовника на наявність вірусів, троянів чи криптомайнерів. Виконавець не несе відповідальності за будь-які збитки, зараження ПК Замовника вірусами, витік інформації або компрометацію ключів, що виникли внаслідок дій третіх осіб або через переходи Замовника за сторонніми посиланнями.</p>
             <p>4.3. <strong>Неправильне використання (Помилки користувача):</strong> Виконавець не несе відповідальності за збої, втрату даних, пошкодження інформаційної архітектури або фінансові збитки Замовника, викликані неправильним копіюванням коду, помилками у конфігураційних файлах, випадковим видаленням баз даних або некваліфікованими діями персоналу Замовника.</p>
-            <p>4.4. Замовник зобов'язаний самостійно забезпечувати антивірусний захист свого ПК та створювати резервні копії (backups) проекту до початку надання інтелектуального супроводу.</p>
+            <p>4.4. <strong>Зовнішні фактори штучного інтелекту:</strong> Виконавець не несе відповідальності за раптові зміни в API, внутрішніх алгоритмах, лімітах чи політиках сторонніх ШІ-платформ (OpenAI, Anthropic тощо), що відбулися після моменту надання послуги.</p>
+            <p>4.5. Замовник зобов'язаний самостійно забезпечувати антивірусний захист свого ПК та створювати резервні копії (backups) проекту до початку надання інтелектуального супроводу.</p>
 
             <h2>5. ПРАВИЛА ТА УМОВИ ПОВЕРНЕННЯ КОШТІВ</h2>
             <p>5.1. Замовник має право повернути кошти <strong>до моменту фактичного початку виконання робіт</strong> (до початку інженерного аналізу архітектури чи надання доступу до приватного коду).</p>
@@ -230,7 +212,8 @@
 
             <h2>2. TERMS OF SERVICE DELIVERY</h2>
             <p>2.1. The fulfillment of services is distributed exclusively via the Internet.</p>
-            <p>2.2. The Provider guarantees setup initialization **within 24 hours** from payment receipt.</p>
+            <p>2.2. The Provider guarantees setup initialization <strong>within 24 hours</strong> from the moment two conditions are met concurrently: payment clearance and receipt of full project source context/data from the Customer at <a href="mailto:mr.karalyp@gmail.com">mr.karalyp@gmail.com</a>.</p>
+            <p>2.3. The service is considered fully and correctly executed once the final semantic architecture report or code modification is dispatched to the Customer's email. If no written structured rejection is submitted by the Customer within 3 (three) calendar days, the service is deemed approved and closed.</p>
 
             <h2>3. ACCEPTANCE AND PAYMENT PROCEDURE</h2>
             <p>3.1. Generating an invoice and completing a direct wire transfer (SWIFT/IBAN) constitutes full acceptance of this Public Offer.</p>
@@ -242,10 +225,11 @@
             <p>4.1. <strong>"AS IS" Deployment:</strong> Code structure consulting and configurations are provided "as is". The Provider is not responsible for the operability of third-party frameworks, servers, or client OS environments.</p>
             <p>4.2. <strong>Protection against Malware and PC Viruses:</strong> The Provider does not scan or monitor the Customer's hardware for virus entities, malware, or backdoors. The Provider shall not be held liable for any data contamination, computer infections, system breaches, or cryptographic key exposures occurring on the Customer’s side.</p>
             <p>4.3. <strong>Improper Use & User Errors:</strong> The Provider is not responsible for data destruction, logical configuration corruption, or monetary damages arising from customer syntax errors, unvalidated branch merges, structural omissions, or incompetent use of terminal inputs by the Customer's team.</p>
-            <p>4.4. The Customer is independently required to support firewall capabilities, active anti-virus engines, and execute stable snapshot routines (backups) prior to deployment interaction.</p>
+            <p>4.4. <strong>Third-Party AI Dependencies:</strong> The Provider shall not be held liable for internal algorithmic updates, sudden API modifications, query pricing changes, or access limits enforced by third-party AI entities (OpenAI, Anthropic, etc.) post-delivery.</p>
+            <p>4.5. The Customer is independently required to support firewall capabilities, active anti-virus engines, and execute stable snapshot routines (backups) prior to deployment interaction.</p>
 
             <h2>5. REFUND AND CANCELLATION POLICY</h2>
-            <p>5.1. The Customer may request a transaction reversal **only before actual architecture evaluation or code provisioning has commenced**.</p>
+            <p>5.1. The Customer may request a transaction reversal <strong>only before actual architecture evaluation or code provisioning has commenced</strong>.</p>
 
             <h2>6. PROVIDER'S LEGAL DETAILS</h2>
             <p>Sole Proprietor (FOP) Boris Petrovych Pupchenko<br>
@@ -290,6 +274,21 @@
         <!-- ДИНАМІЧНИЙ БЛОК РАХУНКУ (ДОДАТОК №1) -->
         <div id="invoice-modal">
             <div id="invoice-content"></div>
+            
+            <!-- ІНСТРУКЦІЯ ДЛЯ ЗАМИКАННЯ ЛАНЦЮЖКА -->
+            <div class="instruction-box">
+                <span class="lang-uk">
+                    <strong>📬 Крок для активації замовлення:</strong><br>
+                    Після оплати рахунку через ваш онлайн-банк обов'язково надішліть листа на <strong>mr.karalyp@gmail.com</strong>. <br>
+                    Додайте <strong>квитанцію (скріншот)</strong> та ваш <strong>неструктурований текст (ТЗ / контекст)</strong> для проведення ручної дефрагментації.
+                </span>
+                <span class="lang-en" style="display: none;">
+                    <strong>📬 Next Step to Activate Order:</strong><br>
+                    After completing the wire transfer, please send an email to <strong>mr.karalyp@gmail.com</strong>. <br>
+                    Attach your <strong>payment receipt (screenshot)</strong> and your <strong>raw text/context</strong> for manual semantic engineering processing.
+                </span>
+            </div>
+
             <button class="print-btn" id="print-btn-text" onclick="window.print()">🖨️ Роздрукувати рахунок або зберегти в PDF</button>
         </div>
 
@@ -391,20 +390,21 @@
             const invoiceNum = "OP-" + today.getFullYear() + "-" + Math.floor(1000 + Math.random() * 9000);
             const price = selectedOption.value;
 
-            let html = '';
+            let invoiceContentHtml = '';
             let bankAccountDetails = '';
             let correspondentBanksHtml = '';
             let currencySign = currency;
+            let formattedPrice = '';
             
             if (currency === 'UAH') {
                 bankAccountDetails = `<strong>Поточний рахунок (IBAN):</strong> <code style="font-size:1.1em; background:#eee; padding:2px 5px;">UA033052990000026006050668381</code><br><strong>Валюта:</strong> UAH`;
-                var formattedPrice = parseInt(price).toLocaleString('ru-RU');
+                formattedPrice = parseInt(price).toLocaleString('ru-RU');
             } else if (currency === 'USD') {
                 bankAccountDetails = `<strong>Bank SWIFT Code:</strong> <code style="font-size:1.1em; background:#eee; padding:2px 5px;">PBANUA2X</code><br>
                 <strong>IBAN Code (USD):</strong> <code style="font-size:1.1em; background:#eee; padding:2px 5px;">UA203052990000026000050665078</code><br>
                 <strong>Currency:</strong> USD`;
                 currencySign = '$';
-                var formattedPrice = price;
+                formattedPrice = price;
                 
                 correspondentBanksHtml = `
                     <p><strong>BANKS CORRESPONDENT (Банки-кореспонденти):</strong></p>
@@ -418,7 +418,7 @@
 
             if (currentLang === 'uk') {
                 const serviceName = selectedOption.getAttribute('data-name-ua');
-                html = `
+                invoiceContentHtml = `
                     <div style="text-align: right; font-size: 0.85em; color: #555; margin-bottom: 10px;">
                         <strong>Додаток №1 до Договору Публічної Оферти</strong>
                     </div>
@@ -429,7 +429,7 @@
                     <p><strong>Постачальник (Виконавець):</strong> ФОП Пупченко Борис Петрович<br>
                     РНОКПП (ІПН): 2247107119, Адреса: вул. Медична, б. 10, кв. 12, м. Покров, 53300, Україна</p>
                     <p><strong>Платник (Замовник):</strong> Клієнт інтернет-майданчика (Акцептант Публічної Оферти)</p>
-                    <p><strong>Банківські реквізити отримувача (ФОП) в АТ КБ «ПриватБанк»:</strong><br>${bankAccountDetails}</p>
+                    <p><strong>Bank Details / Реквізити отримувача (ФОП) в АТ КБ «ПриватБанк»:</strong><br>${bankAccountDetails}</p>
                     ${correspondentBanksHtml}
                     
                     <table class="invoice-table">
@@ -460,7 +460,7 @@
                 `;
             } else {
                 const serviceNameEn = selectedOption.getAttribute('data-name-en');
-                html = `
+                invoiceContentHtml = `
                     <div style="text-align: right; font-size: 0.85em; color: #555; margin-bottom: 10px;">
                         <strong>Appendix No.1 to the Public Offer Agreement</strong>
                     </div>
@@ -488,22 +488,24 @@
                             <tr>
                                 <td>1</td>
                                 <td>${serviceNameEn}</td>
-                                <td>1 srvc</td>
+                                <td>1 service</td>
                                 <td>${currencySign}${formattedPrice}.00</td>
                                 <td><strong>${currencySign}${formattedPrice}.00</strong></td>
                             </tr>
                         </tbody>
                     </table>
-                    <p style="text-align: right; font-size: 1.1em;"><strong>Total Amount Due: ${currencySign}${formattedPrice}.00 ${currency}</strong></p>
+                    <p style="text-align: right; font-size: 1.1em;"><strong>Total Amount Due: ${currencySign}${formattedPrice}.00</strong></p>
                     <div style="font-size:0.9em; color:#333; background:#f9f9f9; padding:12px; border-left:4px solid #3498db; margin: 15px 0;">
-                        <strong>REMITTANCE INFORMATION (Payment Reference):</strong><br>
-                        <code style="display:block; margin-top:5px; background:#fff; padding:5px; border:1px solid #ddd;">Payment for IT services under Invoice № ${invoiceNum} dated ${dateStr}. No VAT.</code>
+                        <strong>PAYMENT PURPOSE:</strong><br>
+                        <code style="display:block; margin-top:5px; background:#fff; padding:5px; border:1px solid #ddd;">Payment for services according to Invoice No. ${invoiceNum} dated ${dateStr}. VAT 0%.</code>
                     </div>
                 `;
             }
 
-            document.getElementById('invoice-content').innerHTML = html;
+            document.getElementById('invoice-content').innerHTML = invoiceContentHtml;
             document.getElementById('invoice-modal').style.display = 'block';
+            
+            // Плавне прокручування до сформованого інвойсу
             document.getElementById('invoice-modal').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
